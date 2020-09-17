@@ -1,4 +1,4 @@
-# Contributing to SpringBootRestApiTemplate
+# Contributing to Home Leisure Api Server
 Thank you for contributing to SpringBootRestApiTemplate
 We have some rules to contribute this project
 
@@ -36,7 +36,7 @@ We have some rules to contribute this project
 - check code conventions before commit
 
 ### update Class Document
-please update and commit [Class Document](https://always0ne.github.io/SpringBootRestApiTemplate/) once alone before pull request
+please update and commit [Class Document](https://me-x-us.github.io/api-server/) once alone before pull request
   
 ## Developer Certificate of Origin
 Version 1.1

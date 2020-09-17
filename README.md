@@ -1,4 +1,4 @@
-# SpringBootRestApiTemplate
+# Home Leisure Api Server
 ## Index
   - [Overview](#overview) 
   - [Getting Started](#getting-started)
@@ -7,24 +7,23 @@
   - [License](#license)
   - [Deployment](#deployment)
   - [Used or Referenced Projects](Used-or-Referenced-Projects)
-## About SpringBootRestApiTemplate
-This Project is for Quick Start Spring boot Restful Api Server  
-This project provides a simple community functions.
+## About Leisure Api Server
+This Project is Api Server of Home Leisure service.
 
 ## Overview
 ### Provide Features
-- Community Api - See [Rest Api Docs](https://always0ne.github.io/SpringBootRestApiTemplate/ApiDocs.html)
+- Community Api - See [Rest Api Docs](https://me-x-us.github.io/api-server/ApiDocs.html)
 - Error Report System(to SLACK)
 - JWT Authentication(use AccessToken and RefreshToken)
 - Pull Request Auto BuildTest
 - Build Docker image when merged develop(`test`) and master(`release`) branch
-- [Class Document](https://always0ne.github.io/SpringBootRestApiTemplate/)  
+- [Class Document](https://me-x-us.github.io/api-server/)  
 
 ### ErrorCode Rules
 ```
 account 	0000
 community	1000
-post		1100
+post	  	1100
 comment		1200
 system		2000
    ```
@@ -41,13 +40,13 @@ this project build docker image automatically so deploy on docker
 ```shell script
 sudo docker run -d  -p 8080:8080 --name=testserver \
 -v /etc/localtime:/etc/localtime:ro  -e TZ=Asia/Seoul  --restart=unless-stopped \
-docker.pkg.github.com/always0ne/springbootrestapitemplate/test:version
+docker.pkg.github.com/me-x-us/api-server/test:version
 ```
 - deploy running server(master branch)
 ```shell script
 sudo docker run -d  -p 8080:8080 --name=server \
 -v /etc/localtime:/etc/localtime:ro  -e TZ=Asia/Seoul  --restart=unless-stopped \
-docker.pkg.github.com/always0ne/springbootrestapitemplate/release:version
+docker.pkg.github.com/me-x-us/api-server/release:version
 ```
 ## Contributing
 
@@ -58,9 +57,11 @@ of conduct, and the process for submitting pull requests to us.
 ## Authors
   - [Always0ne](https://github.com/Always0ne) - **SangIl Hwang** - <si8363@soongsil.ac.kr>
 
-See also the list of [contributors](https://github.com/always0ne/readmeTemplate/contributors)
+See also the list of [contributors](https://github.com/me-x-us/api-server/contributors)
 who participated in this project.
 ## Used or Referenced Projects
+- [SpringBootRestApiTemplate](https://github.com/always0ne/SpringBootRestApiTemplate) - **MIT** 
+    - referenced to create Spring rest APi Server.
  - [spring-logback-slack-notification-example](https://github.com/brant-hwang/spring-logback-slack-notification-example) - **LICENSE ?** 
     - referenced to create an error notification function.
 

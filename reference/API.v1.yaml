@@ -1,0 +1,301 @@
+openapi: 3.0.0
+info:
+  title: API SERVER
+  version: '1.0'
+  license:
+    name: MIT
+  contact:
+    name: MeXUs
+  description: 홈레저 서버 API 스펙
+servers:
+  - url: 'http://localhost:8080'
+    description: API 서버
+paths:
+  /trainings:
+    get:
+      summary: 추천 영상 리스트
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  _embedded:
+                    type: object
+                    required:
+                      - trainings
+                    properties:
+                      trainings:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            trainingId:
+                              type: number
+                            title:
+                              type: string
+                            chanelName:
+                              type: string
+                            views:
+                              type: number
+                            modifiedDate:
+                              type: string
+                            description:
+                              type: string
+                          required:
+                            - trainingId
+                            - title
+                            - chanelName
+                            - views
+                            - modifiedDate
+                            - description
+                  _links:
+                    type: object
+                    required:
+                      - self
+                    properties:
+                      self:
+                        type: object
+                        required:
+                          - href
+                        properties:
+                          href:
+                            type: string
+                            minLength: 1
+                  page:
+                    type: object
+                    required:
+                      - size
+                      - totalElements
+                      - totalPages
+                      - number
+                    properties:
+                      size:
+                        type: number
+                      totalElements:
+                        type: number
+                      totalPages:
+                        type: number
+                      number:
+                        type: number
+                required:
+                  - _embedded
+                  - _links
+                  - page
+              examples: {}
+      operationId: get-trainings
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: serach
+          description: 검색 키워드
+        - schema:
+            type: string
+          in: query
+          name: option
+          description: 필터 옵션
+      description: '추천 영상 리스트 GET, 검색'
+    post:
+      summary: 트레이닝 업로드
+      operationId: post-trainings
+      responses:
+        '200':
+          description: OK
+      description: 트레이닝 올리기
+  '/trainings/{trainingId}':
+    parameters:
+      - schema:
+          type: string
+        name: trainingId
+        in: path
+        required: true
+        description: 트레이닝 ID
+    get:
+      summary: 트레이닝 하기
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  poses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        JointId:
+                          type: integer
+                        X:
+                          type: number
+                        'Y':
+                          type: number
+                        confidence:
+                          type: number
+                      required:
+                        - JointId
+                        - X
+                        - 'Y'
+                required:
+                  - poses
+      operationId: get-trainings-trainingId
+      description: 트레이닝 하기
+  '/comments/{trainingId}':
+    parameters:
+      - schema:
+          type: string
+        name: trainingId
+        in: path
+        required: true
+        description: 트레이닝 ID
+    post:
+      summary: 댓글달기
+      operationId: post-comments-trainingId
+      responses:
+        '200':
+          description: OK
+      description: 댓글 남기기
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+    get:
+      summary: 댓글 조회하기
+      operationId: get-comments-trainingId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    commentId:
+                      type: number
+                    userId:
+                      type: string
+                    comment:
+                      type: string
+                    createdDate:
+                      type: string
+                    modifiedDate:
+                      type: string
+      description: 댓글 조회하기
+  '/subscribe/{trainerId}':
+    parameters:
+      - schema:
+          type: string
+        name: trainerId
+        in: path
+        required: true
+        description: 트레이너 Id
+    post:
+      summary: 구독하기
+      operationId: post-subscribe-trainerId
+      responses:
+        '200':
+          description: OK
+      description: 트레이너 구독하기
+  '/profile/{userId}':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+    get:
+      summary: 프로필 정보 조회
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nickname:
+                    type: string
+      operationId: get-profile-userId
+    put:
+      summary: 프로필 수정하기
+      operationId: put-profile-userId
+      responses:
+        '200':
+          description: OK
+  /subscribe:
+    get:
+      summary: 구돌 리스트
+      tags: []
+      responses: {}
+      operationId: get-subscribe
+  /keep:
+    get:
+      summary: 내가 담은 운동
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    trainingId:
+                      type: number
+                    title:
+                      type: string
+                    chanelName:
+                      type: string
+                    views:
+                      type: string
+                    modifiedDate:
+                      type: string
+                    description:
+                      type: string
+                  required:
+                    - trainingId
+                    - title
+                    - chanelName
+                    - views
+                    - modifiedDate
+                    - description
+      operationId: get-keep
+  '/keep/{trainingId}':
+    parameters:
+      - schema:
+          type: string
+        name: trainingId
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-keep-trainingId
+      responses:
+        '200':
+          description: OK
+components:
+  schemas: {}
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+security:
+  - Authorization: []

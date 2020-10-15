@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API SERVER",
+    "version": "1.0",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "API 서버"
+    }
+  ],
+  "paths": {
+    "/trainings": {
+      "get": {
+        "summary": "추천 영상 리스트",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "_embedded": {
+                      "type": "object",
+                      "required": [
+                        "trainings"
+                      ],
+                      "properties": {
+                        "trainings": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "trainingId": {
+                                "type": "number"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "chanelName": {
+                                "type": "string"
+                              },
+                              "views": {
+                                "type": "number"
+                              },
+                              "modifiedDate": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "trainingId",
+                              "title",
+                              "chanelName",
+                              "views",
+                              "modifiedDate",
+                              "description"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "required": [
+                        "self"
+                      ],
+                      "properties": {
+                        "self": {
+                          "type": "object",
+                          "required": [
+                            "href"
+                          ],
+                          "properties": {
+                            "href": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "type": "object",
+                      "required": [
+                        "size",
+                        "totalElements",
+                        "totalPages",
+                        "number"
+                      ],
+                      "properties": {
+                        "size": {
+                          "type": "number"
+                        },
+                        "totalElements": {
+                          "type": "number"
+                        },
+                        "totalPages": {
+                          "type": "number"
+                        },
+                        "number": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "_embedded",
+                    "_links",
+                    "page"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "get-trainings",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "serach",
+            "description": "검색 키워드"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "option",
+            "description": "필터 옵션"
+          }
+        ],
+        "description": "추천 영상 리스트 GET, 검색"
+      }
+    },
+    "/trainings/{trainingId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "trainingId",
+          "in": "path",
+          "required": true,
+          "description": "트레이닝 ID"
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "operationId": "get-trainings-trainingId",
+        "description": "트레이닝 하기"
+      }
+    },
+    "/comments/{trainingId}": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-comments-trainingId"
+      },
+      "parameters": [],
+      "post": {
+        "summary": "",
+        "operationId": "post-comments-trainingId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "Authorization": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
+}

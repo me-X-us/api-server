@@ -58,7 +58,7 @@ public class Training extends Date {
      * @see Comment
      */
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "training_id")
     private List<Comment> comments;
 
     public Training(Long id, Users author, String title, String body) {

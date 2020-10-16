@@ -18,11 +18,11 @@ public class TrainingsResponse extends EntityModel<TrainingsDto> {
      * 트레이닝 리스트 응답
      * self Link, APIDocs Link
      *
-     * @param post  트레이닝 데이터
+     * @param Training  트레이닝 데이터
      * @param links 추가 링크
      */
-    public TrainingsResponse(TrainingsDto post, Link... links) {
-        super(post, links);
-        add(linkTo(TrainingController.class).slash(post.getTrainingId()).withSelfRel());
+    public TrainingsResponse(TrainingsDto Training, Link... links) {
+        super(Training, links);
+        add(linkTo(TrainingController.class).slash(Training.getTrainingId()).withSelfRel());
     }
 }

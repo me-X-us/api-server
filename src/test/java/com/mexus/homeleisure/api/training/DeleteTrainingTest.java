@@ -19,7 +19,7 @@ class DeleteTrainingTest extends BaseControllerTest {
     @Test
     @WithMockUser("TestUser1")
     @DisplayName("트레이닝 삭제(성공)")
-    void deletePostSuccess() throws Exception {
+    void deleteTrainingSuccess() throws Exception {
         Training training = this.trainingFactory.generateTraining(1);
         this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/trainings/{trainingId}", training
             .getTrainingId()))

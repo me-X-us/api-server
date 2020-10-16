@@ -91,8 +91,8 @@ operation::0006[snippets='response-body']
 ==== Error1001
 operation::1001[snippets='response-body']
 
-[[PostError]]
-==== Post Error
+[[TrainingError]]
+==== Training Error
 [[E1101]]
 ===== Error1101
 operation::1101[snippets='response-body']
@@ -134,40 +134,40 @@ operation::signup[snippets='http-request,http-response']
 
 operation::idcheck[snippets='http-request,http-response']
 
-[[getPosts]]
+[[getTrainings]]
 === 게시글 목록 조회
 
 `Get` 요청을 사용해서 게시글 목록을 조회 할 수 있다.
 
-operation::getPosts[snippets='http-request,http-response']
+operation::getTrainings[snippets='http-request,http-response']
 
-[[sendPost]]
+[[sendTraining]]
 === 게시글 작성
 
 `Post` 요청을 사용해서 게시글을 작성 할 수 있다.
 
-operation::sendPost[snippets='http-request,http-response']
+operation::sendTraining[snippets='http-request,http-response']
 
-[[getPost]]
+[[getTraining]]
 === 게시글 조회
 
 `Get` 요청을 사용해서 게시글을 조회 할 수 있다.
 
-operation::getPost[snippets='path-parameters,http-request,http-response']
+operation::getTraining[snippets='path-parameters,http-request,http-response']
 
-[[updatePost]]
+[[updateTraining]]
 === 게시글 수정
 
 `Put` 요청을 사용해서 게시글을 수정 할 수 있다.
 
-operation::updatePost[snippets='path-parameters,http-request,http-response']
+operation::updateTraining[snippets='path-parameters,http-request,http-response']
 
-[[deletePost]]
+[[deleteTraining]]
 === 게시글 삭제
 
 `Delete` 요청을 사용해서 게시글을 삭제 할 수 있다.
 
-operation::deletePost[snippets='path-parameters,http-request,http-response']
+operation::deleteTraining[snippets='path-parameters,http-request,http-response']
 
 [[sendComment]]
 === 댓글 작성

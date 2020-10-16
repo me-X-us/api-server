@@ -52,7 +52,7 @@ class UpdateCommentTest extends BaseControllerTest {
     @Test
     @WithMockUser("TestUser2")
     @DisplayName("댓글 수정하기(트레이닝가 없을때)")
-    void updateCommentFailBecausePostNotExist() throws Exception {
+    void updateCommentFailBecauseTrainingNotExist() throws Exception {
         UpdateCommentRequest updateCommentRequest = UpdateCommentRequest.builder()
                 .message("댓글 수정 테스트")
                 .build();

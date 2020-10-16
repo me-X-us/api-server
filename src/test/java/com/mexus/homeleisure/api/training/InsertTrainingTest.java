@@ -21,7 +21,7 @@ class InsertTrainingTest extends BaseControllerTest {
     @Test
     @WithMockUser("TestUser1")
     @DisplayName("트레이닝 저장(성공)")
-    void insertPostSuccess() throws Exception {
+    void insertTrainingSuccess() throws Exception {
         String accessToken = accountFactory.generateUser(1).getAccessToken();
         ModifyTrainingRequest modifyTrainingRequest = ModifyTrainingRequest.builder()
                 .title("트레이닝 제목")

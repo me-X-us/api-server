@@ -3,7 +3,7 @@ package com.mexus.homeleisure.api.common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mexus.homeleisure.testfactory.AccountFactory;
 import com.mexus.homeleisure.testfactory.CommentFactory;
-import com.mexus.homeleisure.testfactory.PostFactory;
+import com.mexus.homeleisure.testfactory.TrainingFactory;
 import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -30,7 +30,7 @@ public class BaseControllerTest {
     protected ObjectMapper objectMapper;
 
     @Autowired
-    protected PostFactory postFactory;
+    protected TrainingFactory trainingFactory;
 
     @Autowired
     protected CommentFactory commentFactory;

@@ -1,6 +1,6 @@
 package com.mexus.homeleisure.api.common;
 
-import com.mexus.homeleisure.api.community.comment.request.AddCommentRequest;
+import com.mexus.homeleisure.api.comment.request.AddCommentRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -19,7 +19,7 @@ class SystemErrorTest extends BaseControllerTest {
     @DisplayName("맞지 않는 RequestBody가 왔을 때")
     void FailBecauseWrongRequest() throws Exception {
         AddCommentRequest addCommentRequest = AddCommentRequest.builder().message("wrong").build();
-        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/board/posts")
+        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/trainings")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.objectMapper.writeValueAsString(addCommentRequest)))
                 .andExpect(status().isBadRequest())
@@ -32,7 +32,7 @@ class SystemErrorTest extends BaseControllerTest {
     @WithMockUser("TestUser1")
     @DisplayName("해석할 수 없는 RequestBody가 왔을 때")
     void FailBecauseCantParse() throws Exception {
-        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/board/posts")
+        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/trainings")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("Can't Parse Value Like this"))
                 .andExpect(status().isBadRequest())

@@ -39,7 +39,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
      * @param pageable 페이지 정보
      * @return 모든 게시글(Page)
      */
-    @Query(value = "SELECT new com.restapi.template.api.community.post.dto.PostsDto(" +
+    @Query(value = "SELECT new com.mexus.homeleisure.api.community.post.dto.PostsDto(" +
             "postId, title, author.userId, views, commentNum, modifiedDate)" +
             " FROM Post",
             countQuery = "SELECT count(postId) FROM Post")

@@ -40,6 +40,11 @@ public class Account {
     private String name;
 
     /**
+     * 사용자 이름
+     */
+    private String email;
+
+    /**
      * 게정 상태
      */
     private UserStatus state;
@@ -64,10 +69,11 @@ public class Account {
         this.refreshToken = refreshToken;
     }
 
-    public Account(String userId, String password, String name, UserStatus state, List<UserRole> roles, String refreshToken) {
+    public Account(String userId, String password, String name, String email, UserStatus state, List<UserRole> roles, String refreshToken) {
         this.userId = userId;
         this.password = password;
         this.name = name;
+        this.email = email;
         this.state = state;
         this.refreshToken = refreshToken;
         this.roles = roles;

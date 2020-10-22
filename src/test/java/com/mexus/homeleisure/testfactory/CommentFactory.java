@@ -9,24 +9,25 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class CommentFactory extends AccountFactory{
+public class CommentFactory extends AccountFactory {
 
-    @Autowired
-    protected TrainingRepository trainingRepository;
-    @Autowired
-    protected CommentRepository commentRepository;
+  @Autowired
+  protected TrainingRepository trainingRepository;
+  @Autowired
+  protected CommentRepository commentRepository;
 
 
-    @Transactional
-    public long addComment(Training training, int i) {
-        Comment savedComment = this.commentRepository.save(
-                new Comment(
-                        generateUserAndGetUser(i),
-                        i + "번째 댓글"
-                )
-        );
-        training.addComment(savedComment);
-        this.trainingRepository.save(training);
-        return savedComment.getCommentId();
-    }
+  @Transactional
+  public long addComment(Training training, int i) {
+    Comment savedComment = this.commentRepository.save(
+        new Comment(
+            generateUserAndGetUser(i),
+            i + "번째 댓글",
+            training
+        )
+    );
+    training.addComment(savedComment);
+    this.trainingRepository.save(training);
+    return savedComment.getCommentId();
+  }
 }

@@ -1,7 +1,7 @@
 package com.mexus.homeleisure.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mexus.homeleisure.api.common.response.ErrorResponse;
+import com.mexus.homeleisure.common.response.ErrorResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;

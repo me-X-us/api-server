@@ -1,4 +1,4 @@
-package com.mexus.homeleisure.api.common;
+package com.mexus.homeleisure.common;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

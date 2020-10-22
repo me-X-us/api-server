@@ -1,4 +1,4 @@
-package com.mexus.homeleisure.api.common;
+package com.mexus.homeleisure.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mexus.homeleisure.testfactory.AccountFactory;
@@ -23,19 +23,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Disabled
 public class BaseControllerTest {
 
-    @Autowired
-    protected MockMvc mockMvc;
+  @Autowired
+  protected MockMvc mockMvc;
 
-    @Autowired
-    protected ObjectMapper objectMapper;
+  @Autowired
+  protected ObjectMapper objectMapper;
 
-    @Autowired
-    protected TrainingFactory trainingFactory;
+  @Autowired
+  protected TrainingFactory trainingFactory;
 
-    @Autowired
-    protected CommentFactory commentFactory;
+  @Autowired
+  protected CommentFactory commentFactory;
 
-    @Autowired
-    protected AccountFactory accountFactory;
+  @Autowired
+  protected AccountFactory accountFactory;
 
 }

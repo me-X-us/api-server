@@ -30,7 +30,7 @@ public interface TrainingRepository extends JpaRepository<Training, Long> {
    * @param trainingId 트레이닝 아이디
    * @return 트레이닝(Optional)
    */
-  Optional<Training> findByTrainingIdAndAuthor_UserId(Long trainingId, String userId);
+  Optional<Training> findByTrainingIdAndTrainer_UserId(Long trainingId, String userId);
 
   /**
    * 모든 트레이닝 조회(Pagenation)
@@ -39,7 +39,7 @@ public interface TrainingRepository extends JpaRepository<Training, Long> {
    * @return 모든 트레이닝(Page)
    */
   @Query(value = "SELECT new com.mexus.homeleisure.api.training.dto.TrainingsDto(" +
-      "trainingId, title, author.userId, views, commentNum, modifiedDate)" +
+      "trainingId, title, trainer.name, views, modifiedDate)" +
       " FROM Training",
       countQuery = "SELECT count(trainingId) FROM Training")
   Page<TrainingsDto> findAllProjectedBy(Pageable pageable);

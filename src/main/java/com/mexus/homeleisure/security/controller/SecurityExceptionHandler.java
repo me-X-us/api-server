@@ -2,7 +2,7 @@ package com.mexus.homeleisure.security.controller;
 
 import com.mexus.homeleisure.security.exception.CantSignInException;
 import com.mexus.homeleisure.security.exception.IdAlreadyExistsException;
-import com.mexus.homeleisure.api.common.response.ErrorResponse;
+import com.mexus.homeleisure.common.response.ErrorResponse;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.SignatureException;

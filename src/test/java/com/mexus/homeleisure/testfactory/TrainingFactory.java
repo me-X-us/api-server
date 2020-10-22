@@ -9,17 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class TrainingFactory extends AccountFactory {
 
-    @Autowired
-    protected TrainingRepository trainingRepository;
+  @Autowired
+  protected TrainingRepository trainingRepository;
 
-    @Transactional
-    public Training generateTraining(int i) {
-        return this.trainingRepository.save(
-                new Training(
-                        null,
-                        generateUserAndGetUser(i),
-                        "트레이닝" + i,
-                        "트레이닝 본문입니다."
-                ));
-    }
+  @Transactional
+  public Training generateTraining(int i) {
+    return this.trainingRepository.save(
+        new Training(
+            null,
+            generateUserAndGetUser(i),
+            "트레이닝" + i,
+            "트레이닝 본문입니다."
+        ));
+  }
 }

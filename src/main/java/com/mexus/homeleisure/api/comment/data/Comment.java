@@ -1,7 +1,8 @@
 package com.mexus.homeleisure.api.comment.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mexus.homeleisure.api.common.Date;
+import com.mexus.homeleisure.api.training.data.Training;
+import com.mexus.homeleisure.common.Date;
 import com.mexus.homeleisure.api.user.data.Users;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -40,10 +41,15 @@ public class Comment extends Date {
     @JoinColumn(name = "author")
     private Users author;
 
-    public Comment(Users author, String message) {
+    @ManyToOne
+    @JoinColumn(name = "training")
+    private Training training;
+
+    public Comment(Users author, String message, Training training) {
         super();
         this.author = author;
         this.message = message;
+        this.training = training;
     }
 
     /**

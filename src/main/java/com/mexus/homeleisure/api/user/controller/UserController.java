@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/users", produces = MediaTypes.HAL_JSON_VALUE)
 public class UserController {
 
-    private final TrainingService trainingService;
+  private final TrainingService trainingService;
 
 }

@@ -1,7 +1,7 @@
 package com.mexus.homeleisure.api.user.controller;
 
 import com.mexus.homeleisure.api.user.exception.InvalidUserException;
-import com.mexus.homeleisure.api.common.response.ErrorResponse;
+import com.mexus.homeleisure.common.response.ErrorResponse;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -19,16 +19,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class UserExceptionHandler {
-    /**
-     * 존재하지 않거나 제제된 화원입니다.
-     *
-     * @param exception 없는 댓글 예외
-     * @return NOT_FOUND
-     */
-    @ExceptionHandler(InvalidUserException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ErrorResponse handleCommentNotFound(InvalidUserException exception) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST, "1001", exception.getMessage());
-    }
+  /**
+   * 존재하지 않거나 제제된 화원입니다.
+   *
+   * @param exception 없는 댓글 예외
+   * @return NOT_FOUND
+   */
+  @ExceptionHandler(InvalidUserException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ResponseBody
+  public ErrorResponse handleCommentNotFound(InvalidUserException exception) {
+    return new ErrorResponse(HttpStatus.BAD_REQUEST, "1001", exception.getMessage());
+  }
 }

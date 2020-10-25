@@ -27,5 +27,9 @@ public class SignUpRequest {
     /**
      * 사용자 이름
      */
-    private String name;
+    private String nickName;
+    /**
+     * 사용자 이름
+     */
+    private String email;
 }

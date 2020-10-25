@@ -22,7 +22,8 @@ public class AccountFactory {
     return authService.signUp(
         "TestUser" + i,
         "password",
-        "테스트 유저 " + i
+        "테스트 유저 " + i,
+        "test@mail.com"
     );
   }
 
@@ -31,7 +32,8 @@ public class AccountFactory {
     authService.signUp(
         "TestUser" + i,
         "password",
-        "테스트 유저 " + i
+        "테스트 유저 " + i,
+        "test@mail.com"
     );
     return usersRepository.findByUserIdAndState("TestUser" + i, UserStatus.NORMAL, Users.class)
         .get();

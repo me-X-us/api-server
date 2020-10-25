@@ -19,8 +19,9 @@ class SignUpTest extends BaseControllerTest {
   void signUpSuccess() throws Exception {
     SignUpRequest signUpRequest = SignUpRequest.builder()
         .id("TestUser1")
-        .name("테스트 유저 1")
+        .nickName("테스트 유저 1")
         .password("Password")
+        .email("test@email.com")
         .build();
 
     this.mockMvc.perform(RestDocumentationRequestBuilders.post("/auth/signup")

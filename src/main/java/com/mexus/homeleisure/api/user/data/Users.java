@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Users extends Account {
 
-  public Users(String userId, String password, String name, UserStatus state, List<UserRole> roles,
-               String refreshToken) {
-    super(userId, password, name, state, roles, refreshToken);
+  public Users(String userId, String password, String name, String email, UserStatus state,
+               List<UserRole> roles, String refreshToken) {
+    super(userId, password, name, email, state, roles, refreshToken);
   }
 }

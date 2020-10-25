@@ -148,6 +148,7 @@ class GetTrainingTest extends BaseControllerTest {
     this.mockMvc.perform(RestDocumentationRequestBuilders.get("/trainings/{trainingId}", 1))
         .andExpect(status().isNotFound())
         .andExpect(jsonPath("error").value("1101"))
-        .andDo(print());
+        .andDo(print())
+        .andDo(document("1101"));
   }
 }

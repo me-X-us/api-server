@@ -48,4 +48,21 @@ class SignInTest extends BaseControllerTest {
         .andDo(document("0002"))
         .andDo(print());
   }
+
+  @Test
+  @DisplayName("토큰 발급 받기(실패)-비밀번호 틀림")
+  void signInFailBecauseWrongPW() throws Exception {
+    this.accountFactory.generateUser(1);
+    SignInRequest signInRequest = SignInRequest.builder()
+        .id("TestUser1")
+        .password("wrong password")
+        .build();
+
+    this.mockMvc.perform(RestDocumentationRequestBuilders.post("/auth/signin")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(this.objectMapper.writeValueAsString(signInRequest)))
+        .andExpect(status().isForbidden())
+        .andExpect(jsonPath("error").value("0002"))
+        .andDo(print());
+  }
 }

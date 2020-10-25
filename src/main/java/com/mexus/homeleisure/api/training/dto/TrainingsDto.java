@@ -14,7 +14,6 @@ import org.springframework.hateoas.server.core.Relation;
  * @version 1.0
  */
 @Getter
-@Builder
 @AllArgsConstructor
 @Relation(collectionRelation = "trainingList")
 public class TrainingsDto {

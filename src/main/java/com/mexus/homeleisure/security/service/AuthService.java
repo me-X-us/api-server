@@ -8,6 +8,7 @@ import com.mexus.homeleisure.api.user.data.Users;
 import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.security.exception.CantSignInException;
 import com.mexus.homeleisure.security.exception.IdAlreadyExistsException;
+import com.mexus.homeleisure.security.exception.NicknameAlreadyExistsException;
 import com.mexus.homeleisure.security.request.RefreshRequest;
 import com.mexus.homeleisure.security.response.RefreshResponse;
 import com.mexus.homeleisure.security.response.SignInResponse;
@@ -111,4 +112,9 @@ public class AuthService {
                 .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
                 .build();
     }
+
+  public void nickNameCheck(String nickName) {
+      if (this.usersRepository.findByNameAndStateIsNot(nickName, UserStatus.WITHDRAWAL).isPresent())
+          throw new NicknameAlreadyExistsException(nickName);
+  }
 }

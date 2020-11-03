@@ -34,6 +34,14 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
   Optional<UserIdDto> findByUserIdAndStateIsNot(String userId, UserStatus state);
 
   /**
+   * 계정 ID와 제외된 상태로 조회
+   *
+   * @param nickName 사용자 닉네임
+   * @param state  제외할 상태
+   * @return 계정(Optional)
+   */
+  Optional<UserIdDto> findByNameAndStateIsNot(String nickName, UserStatus state);
+  /**
    * 계정 ID와 상태로 조회
    *
    * @param userId       사용자 ID

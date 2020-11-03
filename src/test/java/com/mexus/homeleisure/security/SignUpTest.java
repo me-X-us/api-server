@@ -53,4 +53,26 @@ class SignUpTest extends BaseControllerTest {
         .andDo(print())
         .andDo(document("0001"));
   }
+
+  @Test
+  @DisplayName("닉네임 중복 조회하기(사용 가능할 때)")
+  void nickNameCheckSuccess() throws Exception {
+    this.mockMvc
+        .perform(RestDocumentationRequestBuilders.get("/auth/checkNickName/{nickName}", "테스트 유저 1"))
+        .andExpect(status().isOk())
+        .andDo(print())
+        .andDo(document("nickNamecheck"));
+  }
+
+  @Test
+  @DisplayName("닉네임 중복 조회하기(사용 불가능할 때)")
+  void nickNameCheckFailBecauseExists() throws Exception {
+    this.accountFactory.generateUser(1);
+
+    this.mockMvc
+        .perform(RestDocumentationRequestBuilders.get("/auth/checkNickName/{nickName}", "테스트 유저 1"))
+        .andExpect(status().isAccepted())
+        .andDo(print())
+        .andDo(document("0007"));
+  }
 }

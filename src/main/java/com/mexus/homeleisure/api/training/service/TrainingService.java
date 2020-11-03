@@ -80,6 +80,7 @@ public class TrainingService {
         .trainer(training.getTrainer().getName())
         .createdDate(training.getCreatedDate())
         .modifiedDate(training.getModifiedDate())
+        .likes(training.getLikes())
         .views(training.getViews())
         .build();
   }

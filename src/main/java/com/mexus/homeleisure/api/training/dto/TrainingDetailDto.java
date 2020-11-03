@@ -34,6 +34,22 @@ public class TrainingDetailDto {
    */
   private final Long views;
   /**
+   * 조회수
+   */
+  private final Long likes;
+  /**
+   * 구독 여부
+   */
+  private final Boolean subscribe;
+  /**
+   * 좋아요 여부
+   */
+  private final Boolean like;
+  /**
+   * 담기 여부
+   */
+  private final Boolean keep;
+  /**
    * 작성일
    */
   private final LocalDateTime createdDate;
@@ -44,12 +60,16 @@ public class TrainingDetailDto {
 
   @Builder
   public TrainingDetailDto(String title, String trainerId, String trainer, String body, Long views,
-                           LocalDateTime createdDate, LocalDateTime modifiedDate) {
+                           Long likes, LocalDateTime createdDate, LocalDateTime modifiedDate) {
     this.title = title;
     this.trainerId = trainerId;
     this.trainer = trainer;
     this.body = body;
+    this.likes = likes;
     this.views = views;
+    this.subscribe=false;
+    this.like=false;
+    this.keep=false;
     this.createdDate = createdDate;
     this.modifiedDate = modifiedDate;
   }

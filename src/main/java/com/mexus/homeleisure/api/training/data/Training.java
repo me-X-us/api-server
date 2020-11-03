@@ -44,6 +44,11 @@ public class Training extends Date {
   @Column(columnDefinition = "TEXT", nullable = false)
   private String body;
   /**
+   * 좋아요수
+   */
+  @Column(nullable = false)
+  private Long likes;
+  /**
    * 조회수
    */
   @Column(nullable = false)
@@ -74,6 +79,7 @@ public class Training extends Date {
     this.trainer = trainer;
     this.title = title;
     this.body = body;
+    this.likes = (long)0;
     this.views = (long) 0;
     this.commentNum = (long) 0;
   }
@@ -85,6 +91,12 @@ public class Training extends Date {
     this.views++;
   }
 
+  /**
+   * 좋아요 수 증가
+   */
+  public void increaseLikes() {
+    this.likes++;
+  }
   /**
    * 트레이닝 수정
    * 데이터 변경

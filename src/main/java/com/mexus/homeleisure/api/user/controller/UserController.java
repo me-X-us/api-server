@@ -1,6 +1,6 @@
 package com.mexus.homeleisure.api.user.controller;
 
-import com.mexus.homeleisure.api.community.post.service.PostService;
+import com.mexus.homeleisure.api.training.service.TrainingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/users", produces = MediaTypes.HAL_JSON_VALUE)
 public class UserController {
 
-    private final PostService postService;
+  private final TrainingService trainingService;
 
 }

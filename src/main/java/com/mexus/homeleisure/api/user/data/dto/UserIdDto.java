@@ -11,8 +11,8 @@ import lombok.AllArgsConstructor;
  */
 @AllArgsConstructor
 public class UserIdDto {
-    /**
-     * 사용자 ID
-     */
-    private String userId;
+  /**
+   * 사용자 ID
+   */
+  private String userId;
 }

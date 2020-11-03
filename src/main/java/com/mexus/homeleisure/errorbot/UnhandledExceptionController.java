@@ -1,6 +1,6 @@
 package com.mexus.homeleisure.errorbot;
 
-import com.mexus.homeleisure.api.common.response.ErrorResponse;
+import com.mexus.homeleisure.common.response.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,8 @@ package com.mexus.homeleisure.security.controller;
 
 import com.mexus.homeleisure.security.exception.CantSignInException;
 import com.mexus.homeleisure.security.exception.IdAlreadyExistsException;
-import com.mexus.homeleisure.api.common.response.ErrorResponse;
+import com.mexus.homeleisure.common.response.ErrorResponse;
+import com.mexus.homeleisure.security.exception.NicknameAlreadyExistsException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.SignatureException;
@@ -87,5 +88,18 @@ public class SecurityExceptionHandler {
     @ResponseBody
     public ErrorResponse handleTokenExpired(ExpiredJwtException exception) {
         return new ErrorResponse(HttpStatus.FORBIDDEN, "0006", "만료된 토큰입니다.");
+    }
+
+    /**
+     * 닉네임 중복 예외 발생
+     *
+     * @param exception 아이디 중복 예외
+     * @return ACCEPTED
+     */
+    @ExceptionHandler(NicknameAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseBody
+    public ErrorResponse handleIdExists(NicknameAlreadyExistsException exception) {
+        return new ErrorResponse(HttpStatus.ACCEPTED, "0007", exception.getMessage());
     }
 }

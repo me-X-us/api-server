@@ -76,6 +76,21 @@ public class AuthController {
   }
 
   /**
+   * 닉네임 중복 체크하기
+   *
+   * @param nickName 중복확인할  닉네임
+   * @return 사용가능 여부
+   */
+  @GetMapping("/checkNickName/{nickName}")
+  @ResponseStatus(HttpStatus.OK)
+  public String nickNameCheck(
+      @PathVariable String nickName
+  ) {
+    this.authService.nickNameCheck(nickName);
+    return "사용가능한 닉네임입니다.";
+  }
+
+  /**
    * RefreshToken 으로 AccessToken 재발급 받기
    *
    * @param refreshRequest 토큰 갱신 요청

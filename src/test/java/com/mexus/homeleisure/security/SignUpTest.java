@@ -4,7 +4,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.mexus.homeleisure.api.common.BaseControllerTest;
+import com.mexus.homeleisure.common.BaseControllerTest;
 import com.mexus.homeleisure.security.request.SignUpRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -52,5 +52,27 @@ class SignUpTest extends BaseControllerTest {
         .andExpect(status().isAccepted())
         .andDo(print())
         .andDo(document("0001"));
+  }
+
+  @Test
+  @DisplayName("닉네임 중복 조회하기(사용 가능할 때)")
+  void nickNameCheckSuccess() throws Exception {
+    this.mockMvc
+        .perform(RestDocumentationRequestBuilders.get("/auth/checkNickName/{nickName}", "테스트 유저 1"))
+        .andExpect(status().isOk())
+        .andDo(print())
+        .andDo(document("nickNamecheck"));
+  }
+
+  @Test
+  @DisplayName("닉네임 중복 조회하기(사용 불가능할 때)")
+  void nickNameCheckFailBecauseExists() throws Exception {
+    this.accountFactory.generateUser(1);
+
+    this.mockMvc
+        .perform(RestDocumentationRequestBuilders.get("/auth/checkNickName/{nickName}", "테스트 유저 1"))
+        .andExpect(status().isAccepted())
+        .andDo(print())
+        .andDo(document("0007"));
   }
 }

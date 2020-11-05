@@ -16,6 +16,10 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
+
+file:
+  upload-dir: ./files
+
 jwt:
   secretKey: "This Data Must Be Managed By Secret NOT HERE THIS IS JUST EXAMPLE"
 

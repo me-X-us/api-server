@@ -45,4 +45,21 @@ class UploadProfileImageTest extends BaseControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    @DisplayName("프로필 이미지 업로드")
+    void uploadProfileImageFailBecauseBadFileName() throws Exception {
+        String accessToken = accountFactory.generateUser(1).getAccessToken();
+        File targetFile = new File("./files/test..jpg");
+        MockMultipartFile image = new MockMultipartFile(
+            "image", targetFile.getName(), "image/jpeg", new FileInputStream(targetFile));
+
+        this.mockMvc.perform(RestDocumentationRequestBuilders.fileUpload("/profile/{userId}/image", "TestUser1").file(image)
+            .accept(MediaTypes.HAL_JSON)
+            .header("Authorization", "Bearer " + accessToken)
+        )
+            .andExpect(MockMvcResultMatchers.status().isBadRequest())
+            .andDo(print())
+            .andDo(document("3001"));
+    }
 }

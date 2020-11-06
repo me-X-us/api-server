@@ -33,7 +33,7 @@ class UploadThumbnailImageTest extends BaseControllerTest {
         MockMultipartFile image = new MockMultipartFile(
                 "image", targetFile.getName(), "image/jpeg", new FileInputStream(targetFile));
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.fileUpload("/thumbnail/{trainingId}", 1).file(image)
+        this.mockMvc.perform(RestDocumentationRequestBuilders.fileUpload("/thumbnail/{trainingId}", training.getTrainingId()).file(image)
                 .accept(MediaTypes.HAL_JSON)
         )
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -44,8 +44,42 @@ class UploadThumbnailImageTest extends BaseControllerTest {
                         )
                 ))
         ;
-        this.mockMvc.perform(get("/thumbnail/{trainingId}", 1))
+        this.mockMvc.perform(get("/thumbnail/{trainingId}", training.getTrainingId()))
                 .andExpect(status().isOk())
                 .andDo(print());
+    }
+    @Test
+    @WithMockUser("TestUser1")
+    @DisplayName("썸네일 이미지 업로드(성공)")
+    void uploadThumbnailImageFailBecauseBadName() throws Exception {
+        Training training = this.trainingFactory.generateTraining(1);
+
+        File targetFile = new File("./files/test..jpg");
+        MockMultipartFile image = new MockMultipartFile(
+            "image", targetFile.getName(), "image/jpeg", new FileInputStream(targetFile));
+
+        this.mockMvc.perform(RestDocumentationRequestBuilders.fileUpload("/thumbnail/{trainingId}", 1).file(image)
+            .accept(MediaTypes.HAL_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().isBadRequest())
+            .andDo(print());
+    }
+
+    @Test
+    @WithMockUser("TestUser1")
+    @DisplayName("썸네일 이미지 업로드(실패)")
+    void uploadThumbnailImageFailBecauseNotMine() throws Exception {
+
+        File targetFile = new File("./files/thumbnailImg/test.jpg");
+        MockMultipartFile image = new MockMultipartFile(
+            "image", targetFile.getName(), "image/jpeg", new FileInputStream(targetFile));
+
+        this.mockMvc.perform(
+            RestDocumentationRequestBuilders.fileUpload("/thumbnail/{trainingId}", 1).file(image)
+                .accept(MediaTypes.HAL_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().isBadRequest())
+            .andDo(print())
+        ;
     }
 }

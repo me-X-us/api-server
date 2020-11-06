@@ -21,6 +21,11 @@ public class ThumbnailImage {
     private String trainingId;
     private String filePath;
 
+    public ThumbnailImage(String trainingId, String filePath) {
+        this.trainingId = trainingId;
+        this.filePath = filePath;
+    }
+
     public void updateThumbnailImage(String trainingId, String filePath) {
         this.trainingId = trainingId;
         this.filePath = filePath;

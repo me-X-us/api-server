@@ -25,7 +25,7 @@ public class ThumbnailImageController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void uploadImage(
+    public void uploadThumbnailImage(
             @PathVariable String trainingId,
             @RequestParam("image") MultipartFile image
     ) {
@@ -34,7 +34,7 @@ public class ThumbnailImageController {
     }
 
     @GetMapping
-    public ResponseEntity<Resource> downloadthumbnailImage(
+    public ResponseEntity<Resource> downloadThumbnailImage(
             @PathVariable String trainingId,
             HttpServletRequest request
     ) {

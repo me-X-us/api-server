@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/profile/{userId}/images")
+@RequestMapping(value = "/profile/{userId}/image")
 public class ProfileImageController {
     private static final Logger logger = LoggerFactory.getLogger(ProfileImageController.class);
     private final ProfileImageService profileImageService;

@@ -21,6 +21,10 @@ public class ProfileImage {
     private String userId;
     private String filePath;
 
+    public ProfileImage(String userId, String filePath) {
+        this.userId = userId;
+        this.filePath = filePath;
+    }
     public void updateProfileImage(String userId, String filePath) {
         this.userId = userId;
         this.filePath = filePath;

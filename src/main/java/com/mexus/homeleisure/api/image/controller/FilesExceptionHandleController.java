@@ -1,5 +1,6 @@
 package com.mexus.homeleisure.api.image.controller;
 
+import com.mexus.homeleisure.api.image.exception.FileDownloadException;
 import com.mexus.homeleisure.api.image.exception.FileNameException;
 import com.mexus.homeleisure.common.response.ErrorResponse;
 import org.springframework.core.Ordered;
@@ -19,5 +20,12 @@ public class FilesExceptionHandleController {
     @ResponseBody
     public ErrorResponse handleCantUploadFile(FileNameException exception) {
         return new ErrorResponse(HttpStatus.BAD_REQUEST, "303", exception.getMessage());
+    }
+
+    @ExceptionHandler(FileDownloadException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ErrorResponse handleCantUploadFile(FileDownloadException exception) {
+        return new ErrorResponse(HttpStatus.NOT_FOUND, "304", exception.getMessage());
     }
 }

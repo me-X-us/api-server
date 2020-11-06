@@ -8,5 +8,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ConfigurationProperties(prefix = "file")
 public class FileConfig {
-    private String uploadDir;
+    private String profileDir;
+    private String thumbnailDir;
 }

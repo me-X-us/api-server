@@ -25,14 +25,14 @@ public class FileService {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
         StringTokenizer tockens = new StringTokenizer(fileName);
         tockens.nextToken(".");
-        fileName = id + "." + tockens.nextToken();
+        String newFileName = id + "." + tockens.nextToken();
         try {
             fileName = checkFileNameAndExtension(file);
-            Files.copy(file.getInputStream(), location.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(file.getInputStream(), location.resolve(newFileName), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             throw new FileUploadException(fileName, e);
         }
-        return fileName;
+        return newFileName;
     }
 
     private String checkFileNameAndExtension(MultipartFile file) {

@@ -1,5 +1,7 @@
 package com.mexus.homeleisure.errorbot.util;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -83,6 +85,8 @@ public class RequestWrapper {
      * @throws IOException 문자열을 읽는 도중 나올수 있는 예외
      */
     public String body() throws IOException {
+        if(ServletFileUpload.isMultipartContent(request))
+            return "Image";
         String body = null;
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;

@@ -16,6 +16,15 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 215MB
+file:
+  profile-dir: ./files/profileImg
+  thumbnail-dir: ./files/thumbnailImg
+
 jwt:
   secretKey: "This Data Must Be Managed By Secret NOT HERE THIS IS JUST EXAMPLE"
 

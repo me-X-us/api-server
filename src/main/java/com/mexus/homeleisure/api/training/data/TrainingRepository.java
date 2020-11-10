@@ -43,4 +43,6 @@ public interface TrainingRepository extends JpaRepository<Training, Long> {
       " FROM Training",
       countQuery = "SELECT count(trainingId) FROM Training")
   Page<TrainingsDto> findAllProjectedBy(Pageable pageable);
+
+  Boolean existsByTrainingIdAndTrainer_UserId(Long trainingId, String trainerId);
 }

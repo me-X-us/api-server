@@ -510,6 +510,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
+<li><a href="#ImageError">Image Error</a>
+<ul class="sectlevel3">
+<li><a href="#E3001">Error3001</a>
+<ul class="sectlevel4">
+<li><a href="#E3001_response_body">Response body</a></li>
+</ul>
+</li>
+<li><a href="#E3002">Error3002</a>
+<ul class="sectlevel4">
+<li><a href="#E3002_response_body">Response body</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#overview-hypermedia">하이퍼미디어</a>
@@ -592,6 +606,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#deleteComment_http_response">Example response</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#getProfileImage">프로필 이미지 조회</a>
+<ul class="sectlevel2">
+<li><a href="#getProfileImage_path_parameters">Path parameters</a></li>
+<li><a href="#getProfileImage_http_request">HTTP request</a></li>
+</ul>
+</li>
+<li><a href="#updateProfileImage">프로필 이미지 수정</a>
+<ul class="sectlevel2">
+<li><a href="#updateProfileImage_path_parameters">Path parameters</a></li>
+<li><a href="#updateProfileImage_curl_request">Example request</a></li>
+<li><a href="#updateProfileImage_http_response">Example response</a></li>
+</ul>
+</li>
+<li><a href="#getThumbnailImage">썸네일 이미지 조회</a>
+<ul class="sectlevel2">
+<li><a href="#getThumbnailImage_path_parameters">Path parameters</a></li>
+<li><a href="#getThumbnailImage_http_request">HTTP request</a></li>
+</ul>
+</li>
+<li><a href="#updateThumbnailImage">썸네일 이미지 수정</a>
+<ul class="sectlevel2">
+<li><a href="#updateThumbnailImage_path_parameters">Path parameters</a></li>
+<li><a href="#updateThumbnailImage_curl_request">Example request</a></li>
+<li><a href="#updateThumbnailImage_http_response">Example response</a></li>
 </ul>
 </li>
 </ul>
@@ -700,7 +740,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:40.0598609",
+  "timestamp" : "2020-11-07T02:11:35.359307",
   "status" : 202,
   "error" : "0001",
   "message" : "ID: TestUser1 이미 사용중인 아이디입니다."
@@ -716,7 +756,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:38.693442",
+  "timestamp" : "2020-11-07T02:11:34.011512",
   "status" : 403,
   "error" : "0002",
   "message" : "ID: TestUser1 회원가입이 되어있지 않거나 잠긴 계정입니다."
@@ -732,7 +772,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:36.9903492",
+  "timestamp" : "2020-11-07T02:11:32.5958038",
   "status" : 403,
   "error" : "0003",
   "message" : "유효하지 않은 토큰입니다."
@@ -748,7 +788,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:37.0957357",
+  "timestamp" : "2020-11-07T02:11:32.688554",
   "status" : 403,
   "error" : "0004",
   "message" : "손상된 토큰입니다."
@@ -764,7 +804,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:35.5517112",
+  "timestamp" : "2020-11-07T02:11:31.1188594",
   "status" : 403,
   "error" : "0005",
   "message" : "잘못된 인증입니다."
@@ -780,7 +820,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:35.6444199",
+  "timestamp" : "2020-11-07T02:11:31.2111231",
   "status" : 403,
   "error" : "0006",
   "message" : "만료된 토큰입니다."
@@ -796,10 +836,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:40.1662228",
+  "timestamp" : "2020-11-07T02:11:35.4700119",
   "status" : 202,
   "error" : "0007",
-  "message" : "ID: 테스트 유저 1 이미 사용중인 닉네임입니다."
+  "message" : "Nickname: 테스트 유저 1 이미 사용중인 닉네임입니다."
 }</code></pre>
 </div>
 </div>
@@ -815,7 +855,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:21.0425031",
+  "timestamp" : "2020-11-07T02:11:08.3795276",
   "status" : 400,
   "error" : "1001",
   "message" : "존재하지 않거나 수정 권한이 없습니다."
@@ -833,7 +873,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:29.4155981",
+  "timestamp" : "2020-11-07T02:11:25.5393071",
   "status" : 404,
   "error" : "1101",
   "message" : "존재하지 않는 트레이닝입니다."
@@ -857,10 +897,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-04T00:10:34.2936438",
+  "timestamp" : "2020-11-07T02:11:30.03519",
   "status" : 400,
   "error" : "2001",
   "message" : "Unrecognized field \"message\" "
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ImageError"><a class="link" href="#ImageError">Image Error</a></h3>
+<div class="sect3">
+<h4 id="E3001"><a class="link" href="#E3001">Error3001</a></h4>
+<div class="sect4">
+<h5 id="E3001_response_body"><a class="link" href="#E3001_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code>{
+  "timestamp" : "2020-11-07T02:11:20.2726846",
+  "status" : 400,
+  "error" : "3001",
+  "message" : "파일명에 부적합 문자가 포함되어 있습니다. test..jpg"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="E3002"><a class="link" href="#E3002">Error3002</a></h4>
+<div class="sect4">
+<h5 id="E3002_response_body"><a class="link" href="#E3002_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code>{
+  "timestamp" : "2020-11-07T02:11:16.3146794",
+  "status" : 404,
+  "error" : "3002",
+  "message" : "TestUser1 파일을 찾을 수 없습니다."
 }</code></pre>
 </div>
 </div>
@@ -917,8 +992,8 @@ X-Frame-Options: DENY
 Content-Length: 380
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NDE2MjM4LCJleHAiOjE2MDQ0MTY4Mzh9.m3szwRDVFbEXE1xkjWcjyPyRE6eUHjJZyp1kbHqpiAk",
-  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NDE2MjM4LCJleHAiOjE2MDUwMjEwMzh9.OIMYQhs18dsD8D9EkI_xLP0IjK6lL96mocjkej27aNg"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjkzLCJleHAiOjE2MDQ2ODMyOTN9.wuXkJOTnjR3CTKJO-MMLE9d2kcFEYvWozBjXo_ENQFQ",
+  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjkzLCJleHAiOjE2MDUyODc0OTN9.xLVz4sHhtqM3xK0L3EicKkbJi19o7P7D7qDmXvYj_8w"
 }</code></pre>
 </div>
 </div>
@@ -966,8 +1041,8 @@ X-Frame-Options: DENY
 Content-Length: 380
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NDE2MjM5LCJleHAiOjE2MDQ0MTY4Mzl9.NDbOrQStMisOLRlndwAXwZQlkvF792KxV7mi8m5n9co",
-  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NDE2MjM5LCJleHAiOjE2MDUwMjEwMzl9.GokC_lHF1QFJespkulAAsnQeAhn1XOEGqdjmbKTSEiQ"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjk1LCJleHAiOjE2MDQ2ODMyOTV9.3vvCpdLDvIKHsGQNMWJ6KOfPYJrnnd_my1KI6xnyliM",
+  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjk1LCJleHAiOjE2MDUyODc0OTV9.-3QLjvv_mLiJwwnBMjYSf-w1mdE-YStJ0c1ztnT97qU"
 }</code></pre>
 </div>
 </div>
@@ -1086,7 +1161,7 @@ Content-Length: 1443
       "title" : "트레이닝4",
       "trainer" : "테스트 유저 4",
       "views" : 0,
-      "modifiedDate" : "2020-11-04T00:10:29.762081",
+      "modifiedDate" : "2020-11-07T02:11:25.906821",
       "_links" : {
         "self" : {
           "href" : "https://templet.restapi.com/trainings/5"
@@ -1097,7 +1172,7 @@ Content-Length: 1443
       "title" : "트레이닝3",
       "trainer" : "테스트 유저 3",
       "views" : 0,
-      "modifiedDate" : "2020-11-04T00:10:29.681067",
+      "modifiedDate" : "2020-11-07T02:11:25.813562",
       "_links" : {
         "self" : {
           "href" : "https://templet.restapi.com/trainings/4"
@@ -1147,7 +1222,7 @@ Content-Length: 1443
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /trainings HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NDE2MjMxLCJleHAiOjE2MDQ0MTY4MzF9.EfikvpBFXcI_XXKrGpKuErKcBZG7kwtw_wWolq1GRqE
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjg3LCJleHAiOjE2MDQ2ODMyODd9.3kJ31JEDgvFUERwYUlmDVI0RLjHb3Y_vWT-aKDx7Hvo
 Content-Length: 94
 Host: templet.restapi.com
 
@@ -1255,8 +1330,8 @@ Content-Length: 630
   "subscribe" : false,
   "like" : false,
   "keep" : false,
-  "createdDate" : "2020-11-04T00:10:30.0792763",
-  "modifiedDate" : "2020-11-04T00:10:30.0792763",
+  "createdDate" : "2020-11-07T02:11:26.2075207",
+  "modifiedDate" : "2020-11-07T02:11:26.2075207",
   "_links" : {
     "self" : {
       "href" : "https://templet.restapi.com/trainings/8"
@@ -1634,10 +1709,207 @@ Content-Length: 208
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="getProfileImage"><a class="link" href="#getProfileImage">프로필 이미지 조회</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Get</code> 요청을 사용해서 프로필 이미지를 조회할 수 있다.</p>
+</div>
+<div class="sect2">
+<h3 id="getProfileImage_path_parameters"><a class="link" href="#getProfileImage_path_parameters">Path parameters</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /profile/{userId}/image</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>userId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="getProfileImage_http_request"><a class="link" href="#getProfileImage_http_request">HTTP request</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /profile/TestUser1/image HTTP/1.1
+Host: templet.restapi.com</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="updateProfileImage"><a class="link" href="#updateProfileImage">프로필 이미지 수정</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Post</code> 요청을 사용해서 프로필 이미지를 수정할 수 있다.</p>
+</div>
+<div class="sect2">
+<h3 id="updateProfileImage_path_parameters"><a class="link" href="#updateProfileImage_path_parameters">Path parameters</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /profile/{userId}/image</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>userId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="updateProfileImage_curl_request"><a class="link" href="#updateProfileImage_curl_request">Example request</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'https://templet.restapi.com/profile/TestUser1/image' -i -X POST \
+    -H 'Content-Type: multipart/form-data;charset=UTF-8' \
+    -H 'Accept: application/hal+json' \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjgwLCJleHAiOjE2MDQ2ODMyODB9.1Ozy3H6eH8SD32o4kQaMFrwipHGH1_JEqcrgEsCqDAQ' \
+    -F 'image=@test.jpg;type=image/jpeg'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updateProfileImage_http_response"><a class="link" href="#updateProfileImage_http_response">Example response</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getThumbnailImage"><a class="link" href="#getThumbnailImage">썸네일 이미지 조회</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Get</code> 요청을 사용해서 썸네일 이미지를 조회할 수 있다.</p>
+</div>
+<div class="sect2">
+<h3 id="getThumbnailImage_path_parameters"><a class="link" href="#getThumbnailImage_path_parameters">Path parameters</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /thumbnail/{trainingId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trainingId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="getThumbnailImage_http_request"><a class="link" href="#getThumbnailImage_http_request">HTTP request</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /thumbnail/1 HTTP/1.1
+Host: templet.restapi.com</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="updateThumbnailImage"><a class="link" href="#updateThumbnailImage">썸네일 이미지 수정</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Post</code> 요청을 사용해서 썸네일 이미지를 수정할 수 있다.</p>
+</div>
+<div class="sect2">
+<h3 id="updateThumbnailImage_path_parameters"><a class="link" href="#updateThumbnailImage_path_parameters">Path parameters</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /thumbnail/{trainingId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trainingId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="updateThumbnailImage_curl_request"><a class="link" href="#updateThumbnailImage_curl_request">Example request</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'https://templet.restapi.com/thumbnail/2' -i -X POST \
+    -H 'Content-Type: multipart/form-data;charset=UTF-8' \
+    -H 'Accept: application/hal+json' \
+    -F 'image=@test.jpg;type=image/jpeg'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updateThumbnailImage_http_response"><a class="link" href="#updateThumbnailImage_http_response">Example response</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-04 00:09:59 +0900
+Last updated 2020-11-07 01:43:00 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

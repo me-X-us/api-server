@@ -108,6 +108,16 @@ operation::1101[snippets='response-body']
 ==== Error2001
 operation::2001[snippets='response-body']
 
+
+[[ImageError]]
+=== Image Error
+[[E3001]]
+==== Error3001
+operation::3001[snippets='response-body']
+
+[[E3002]]
+==== Error3002
+operation::3002[snippets='response-body']
 [[overview-hypermedia]]
 == 하이퍼미디어
 
@@ -198,3 +208,31 @@ operation::updateComment[snippets='path-parameters,http-request,http-response']
 `Delete` 요청을 사용해서 댓글을 삭제 할 수 있다.
 
 operation::deleteComment[snippets='path-parameters,http-request,http-response']
+
+
+[[getProfileImage]]
+== 프로필 이미지 조회
+`Get` 요청을 사용해서 프로필 이미지를 조회할 수 있다.
+
+operation::getProfileImage[snippets='path-parameters,http-request']
+
+
+[[updateProfileImage]]
+== 프로필 이미지 수정
+`Post` 요청을 사용해서 프로필 이미지를 수정할 수 있다.
+
+operation::uploadProfileImage[snippets='path-parameters,curl-request,http-response']
+
+
+[[getThumbnailImage]]
+== 썸네일 이미지 조회
+`Get` 요청을 사용해서 썸네일 이미지를 조회할 수 있다.
+
+operation::getThumbnailImage[snippets='path-parameters,http-request']
+
+
+[[updateThumbnailImage]]
+== 썸네일 이미지 수정
+`Post` 요청을 사용해서 썸네일 이미지를 수정할 수 있다.
+
+operation::uploadThumbnailImage[snippets='path-parameters,curl-request,http-response']

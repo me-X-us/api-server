@@ -40,12 +40,14 @@ public class ThumbnailImageController {
     ) {
         // Load file as Resource
         Resource resource = thumbnailImageService.getThumbnailImage(trainingId);
-        String contentType = "application/octet-stream";
+        String contentType = null;
         try {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
             logger.info("Could not determine file type.");
         }
+        if(contentType==null)
+            contentType = "application/octet-stream";
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")

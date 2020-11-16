@@ -1,7 +1,11 @@
 package com.mexus.homeleisure.api.training.service;
 
+import com.mexus.homeleisure.api.training.data.KeyPoints;
+import com.mexus.homeleisure.api.training.data.KeyPointsRepository;
 import com.mexus.homeleisure.api.training.data.Training;
 import com.mexus.homeleisure.api.training.data.TrainingRepository;
+import com.mexus.homeleisure.api.training.dto.FrameDto;
+import com.mexus.homeleisure.api.training.dto.KeyPointDto;
 import com.mexus.homeleisure.api.training.dto.TrainingDetailDto;
 import com.mexus.homeleisure.api.training.dto.TrainingsDto;
 import com.mexus.homeleisure.api.training.exception.TrainingNotFoundException;
@@ -11,6 +15,8 @@ import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.api.user.exception.InvalidUserException;
 import com.mexus.homeleisure.common.exception.ThisIsNotYoursException;
 import com.mexus.homeleisure.security.data.UserStatus;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +35,7 @@ public class TrainingService {
 
   private final TrainingRepository trainingRepository;
   private final UsersRepository usersRepository;
+  private final KeyPointsRepository keyPointsRepository;
 
   /**
    * 모든 트레이닝 조회(Paged)
@@ -118,5 +125,20 @@ public class TrainingService {
   private Training getMyTraining(Long trainingId, String requestUserId) {
     return trainingRepository.findByTrainingIdAndTrainer_UserId(trainingId, requestUserId)
         .orElseThrow(ThisIsNotYoursException::new);
+  }
+
+  public List<FrameDto> getPoses(Long trainingId) {
+    List<KeyPoints> keyPoints = keyPointsRepository.findAllByTrainingId(trainingId);
+    int frameNo = 0;
+    List<FrameDto> frames = new ArrayList<FrameDto>();
+    FrameDto frame = new FrameDto(0);
+    for (KeyPoints keyPoint : keyPoints) {
+      if (keyPoint.getFrameNo() != frameNo) {
+        frames.add(frame);
+        frame = new FrameDto(++frameNo);
+      }
+      frame.addKeyPoint(new KeyPointDto(keyPoint));
+    }
+    return frames;
   }
 }

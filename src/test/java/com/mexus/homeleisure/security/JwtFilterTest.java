@@ -23,7 +23,7 @@ class JwtFilterTest extends BaseControllerTest {
   @DisplayName("Bearer 방식의 인증이 아닐 때")
   void FailBecauseNotBearer() throws Exception {
     accountFactory.generateUser(1);
-    String token = jwtTokenProvider.createAccessToken("TestUser1", Collections.singletonList(
+    String token = jwtTokenProvider.createAccessToken("TestUser1","nick", Collections.singletonList(
         UserRole.ROLE_USER));
     this.mockMvc.perform(RestDocumentationRequestBuilders.post("/trainings")
         .header("Authorization", token))
@@ -39,7 +39,7 @@ class JwtFilterTest extends BaseControllerTest {
   void FailBecauseExpired() throws Exception {
     accountFactory.generateUser(1);
     String token = jwtTokenProvider
-        .generateToken("TestUser1", Collections.singletonList(UserRole.ROLE_USER), -10);
+        .generateToken("TestUser1", "nick",Collections.singletonList(UserRole.ROLE_USER), -10);
     this.mockMvc.perform(RestDocumentationRequestBuilders.post("/trainings")
         .header("Authorization", "Bearer " + token))
         .andExpect(status().isForbidden())

@@ -1,23 +1,22 @@
 package com.mexus.homeleisure.security.service;
 
+import com.mexus.homeleisure.api.user.data.Users;
+import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.security.JwtTokenProvider;
 import com.mexus.homeleisure.security.data.Account;
 import com.mexus.homeleisure.security.data.UserRole;
 import com.mexus.homeleisure.security.data.UserStatus;
-import com.mexus.homeleisure.api.user.data.Users;
-import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.security.exception.CantSignInException;
 import com.mexus.homeleisure.security.exception.IdAlreadyExistsException;
 import com.mexus.homeleisure.security.exception.NicknameAlreadyExistsException;
 import com.mexus.homeleisure.security.request.RefreshRequest;
 import com.mexus.homeleisure.security.response.RefreshResponse;
 import com.mexus.homeleisure.security.response.SignInResponse;
+import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Collections;
 
 /**
  * 회원 인증 서비스
@@ -48,10 +47,10 @@ public class AuthService {
                 .orElseThrow(() -> new CantSignInException(id));
         if (!passwordEncoder.matches(password, account.getPassword()))
             throw new CantSignInException(id);
-        account.updateRefreshToken(jwtTokenProvider.createRefreshToken(account.getUserId(), account.getRoles()));
+        account.updateRefreshToken(jwtTokenProvider.createRefreshToken(account.getUserId(),account.getName(), account.getRoles()));
 
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
+                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getName(), account.getRoles()))
                 .refreshToken(account.getRefreshToken())
                 .build();
     }
@@ -75,11 +74,11 @@ public class AuthService {
                         email,
                         UserStatus.NORMAL,
                         Collections.singletonList(UserRole.ROLE_USER),
-                        jwtTokenProvider.createRefreshToken(id, Collections.singletonList(UserRole.ROLE_USER))
+                        jwtTokenProvider.createRefreshToken(id, name,Collections.singletonList(UserRole.ROLE_USER))
                 ));
 
         return SignInResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
+                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getName(), account.getRoles()))
                 .refreshToken(account.getRefreshToken())
                 .build();
     }
@@ -109,7 +108,7 @@ public class AuthService {
                 .orElseThrow(() -> new CantSignInException(refreshId));
 
         return RefreshResponse.builder()
-                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
+                .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(),account.getName(), account.getRoles()))
                 .build();
     }
 

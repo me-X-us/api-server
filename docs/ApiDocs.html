@@ -571,6 +571,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#getTraining_http_response">Example response</a></li>
 </ul>
 </li>
+<li><a href="#getPoses">트레이닝 포즈 데이터 조회</a>
+<ul class="sectlevel3">
+<li><a href="#getPoses_path_parameters">Path parameters</a></li>
+<li><a href="#getPoses_http_request">HTTP request</a></li>
+<li><a href="#getPoses_http_response">Example response</a></li>
+</ul>
+</li>
 <li><a href="#updateTraining">트레이닝 수정</a>
 <ul class="sectlevel3">
 <li><a href="#updateTraining_path_parameters">Path parameters</a></li>
@@ -740,7 +747,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:35.359307",
+  "timestamp" : "2020-11-17T13:16:13.5166302",
   "status" : 202,
   "error" : "0001",
   "message" : "ID: TestUser1 이미 사용중인 아이디입니다."
@@ -756,7 +763,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:34.011512",
+  "timestamp" : "2020-11-17T13:16:12.033111",
   "status" : 403,
   "error" : "0002",
   "message" : "ID: TestUser1 회원가입이 되어있지 않거나 잠긴 계정입니다."
@@ -772,7 +779,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:32.5958038",
+  "timestamp" : "2020-11-17T13:16:09.8400429",
   "status" : 403,
   "error" : "0003",
   "message" : "유효하지 않은 토큰입니다."
@@ -788,7 +795,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:32.688554",
+  "timestamp" : "2020-11-17T13:16:09.9434985",
   "status" : 403,
   "error" : "0004",
   "message" : "손상된 토큰입니다."
@@ -804,7 +811,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:31.1188594",
+  "timestamp" : "2020-11-17T13:16:08.1379012",
   "status" : 403,
   "error" : "0005",
   "message" : "잘못된 인증입니다."
@@ -820,7 +827,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:31.2111231",
+  "timestamp" : "2020-11-17T13:16:08.2930841",
   "status" : 403,
   "error" : "0006",
   "message" : "만료된 토큰입니다."
@@ -836,7 +843,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:35.4700119",
+  "timestamp" : "2020-11-17T13:16:13.6454605",
   "status" : 202,
   "error" : "0007",
   "message" : "Nickname: 테스트 유저 1 이미 사용중인 닉네임입니다."
@@ -855,7 +862,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:08.3795276",
+  "timestamp" : "2020-11-17T13:15:41.0890314",
   "status" : 400,
   "error" : "1001",
   "message" : "존재하지 않거나 수정 권한이 없습니다."
@@ -873,7 +880,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:25.5393071",
+  "timestamp" : "2020-11-17T13:16:00.6763475",
   "status" : 404,
   "error" : "1101",
   "message" : "존재하지 않는 트레이닝입니다."
@@ -897,7 +904,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:30.03519",
+  "timestamp" : "2020-11-17T13:16:06.5470225",
   "status" : 400,
   "error" : "2001",
   "message" : "Unrecognized field \"message\" "
@@ -916,7 +923,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:20.2726846",
+  "timestamp" : "2020-11-17T13:15:53.3778301",
   "status" : 400,
   "error" : "3001",
   "message" : "파일명에 부적합 문자가 포함되어 있습니다. test..jpg"
@@ -932,7 +939,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2020-11-07T02:11:16.3146794",
+  "timestamp" : "2020-11-17T13:15:49.6446347",
   "status" : 404,
   "error" : "3002",
   "message" : "TestUser1 파일을 찾을 수 없습니다."
@@ -981,6 +988,9 @@ Host: templet.restapi.com
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -989,11 +999,11 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 380
+Content-Length: 466
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjkzLCJleHAiOjE2MDQ2ODMyOTN9.wuXkJOTnjR3CTKJO-MMLE9d2kcFEYvWozBjXo_ENQFQ",
-  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjkzLCJleHAiOjE2MDUyODc0OTN9.xLVz4sHhtqM3xK0L3EicKkbJi19o7P7D7qDmXvYj_8w"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NzEsImV4cCI6MTYwNTU4NzE3MX0.bDFXgs1uQXyAFUDPGxS2ta58KLftWyLHdRHhAX9WJDg",
+  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NzEsImV4cCI6MTYwNjE5MTM3MX0.Ql1v7ynqNrxeOcrLyCrNsPZkuZvhb_RrQAGwi76TR_s"
 }</code></pre>
 </div>
 </div>
@@ -1030,6 +1040,9 @@ Host: templet.restapi.com
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1038,11 +1051,11 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 380
+Content-Length: 466
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjk1LCJleHAiOjE2MDQ2ODMyOTV9.3vvCpdLDvIKHsGQNMWJ6KOfPYJrnnd_my1KI6xnyliM",
-  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjk1LCJleHAiOjE2MDUyODc0OTV9.-3QLjvv_mLiJwwnBMjYSf-w1mdE-YStJ0c1ztnT97qU"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NzMsImV4cCI6MTYwNTU4NzE3M30.YcFZBOAVPg8MzETjDhermtsWJNIMsBjzQvnnaC3Zudo",
+  "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NzMsImV4cCI6MTYwNjE5MTM3M30.l8RwDE4Xef_X26GAxFy6RzzSPA34uR-AwHuJZsr1x10"
 }</code></pre>
 </div>
 </div>
@@ -1067,6 +1080,9 @@ Host: templet.restapi.com</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1107,6 +1123,9 @@ Host: templet.restapi.com</code></pre>
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 Content-Length: 35
 X-Content-Type-Options: nosniff
@@ -1144,6 +1163,9 @@ Host: templet.restapi.com</code></pre>
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1161,7 +1183,7 @@ Content-Length: 1443
       "title" : "트레이닝4",
       "trainer" : "테스트 유저 4",
       "views" : 0,
-      "modifiedDate" : "2020-11-07T02:11:25.906821",
+      "modifiedDate" : "2020-11-17T13:16:01.030636",
       "_links" : {
         "self" : {
           "href" : "https://templet.restapi.com/trainings/5"
@@ -1172,7 +1194,7 @@ Content-Length: 1443
       "title" : "트레이닝3",
       "trainer" : "테스트 유저 3",
       "views" : 0,
-      "modifiedDate" : "2020-11-07T02:11:25.813562",
+      "modifiedDate" : "2020-11-17T13:16:00.945731",
       "_links" : {
         "self" : {
           "href" : "https://templet.restapi.com/trainings/4"
@@ -1222,7 +1244,7 @@ Content-Length: 1443
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /trainings HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjg3LCJleHAiOjE2MDQ2ODMyODd9.3kJ31JEDgvFUERwYUlmDVI0RLjHb3Y_vWT-aKDx7Hvo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NjIsImV4cCI6MTYwNTU4NzE2Mn0.D97drrzb4AWlfXmY845G5byaLCXzBREBjIRiwpLJGmc
 Content-Length: 94
 Host: templet.restapi.com
 
@@ -1238,6 +1260,9 @@ Host: templet.restapi.com
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1310,6 +1335,9 @@ Host: templet.restapi.com</code></pre>
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1330,8 +1358,8 @@ Content-Length: 630
   "subscribe" : false,
   "like" : false,
   "keep" : false,
-  "createdDate" : "2020-11-07T02:11:26.2075207",
-  "modifiedDate" : "2020-11-07T02:11:26.2075207",
+  "createdDate" : "2020-11-17T13:16:01.3819946",
+  "modifiedDate" : "2020-11-17T13:16:01.3819946",
   "_links" : {
     "self" : {
       "href" : "https://templet.restapi.com/trainings/8"
@@ -1343,6 +1371,230 @@ Content-Length: 630
       "href" : "https://templet.restapi.com/docs/index.html#getTraining"
     }
   }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getPoses"><a class="link" href="#getPoses">트레이닝 포즈 데이터 조회</a></h3>
+<div class="paragraph">
+<p><code>Get</code> 요청을 사용해서 트레이닝 포즈 데이터를 조회 할 수 있다.</p>
+</div>
+<div class="sect3">
+<h4 id="getPoses_path_parameters"><a class="link" href="#getPoses_path_parameters">Path parameters</a></h4>
+<div class="paragraph">
+<p>Snippet path-parameters not found for operation::getPoses</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getPoses_http_request"><a class="link" href="#getPoses_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /trainings/1/poses HTTP/1.1
+Host: templet.restapi.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getPoses_http_response"><a class="link" href="#getPoses_http_response">Example response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/hal+json;charset=UTF-8
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Content-Length: 4642
+
+{
+  "frames" : [ {
+    "frameNo" : 0,
+    "keyPointDtos" : [ {
+      "y" : 156.9791717529297,
+      "x" : 955.0,
+      "part" : "nose",
+      "score" : 0.9094806909561157
+    }, {
+      "y" : 138.5833282470703,
+      "x" : 964.1944580078125,
+      "part" : "left_eye",
+      "score" : 0.9192264080047607
+    }, {
+      "y" : 138.5833282470703,
+      "x" : 936.611083984375,
+      "part" : "right_eye",
+      "score" : 0.9601777791976929
+    }, {
+      "y" : 156.9791717529297,
+      "x" : 991.7777709960938,
+      "part" : "left_ear",
+      "score" : 0.9775797724723816
+    }, {
+      "y" : 156.9791717529297,
+      "x" : 909.0277709960938,
+      "part" : "right_ear",
+      "score" : 0.9318939447402954
+    }, {
+      "y" : 248.9583282470703,
+      "x" : 1037.75,
+      "part" : "left_shoulder",
+      "score" : 0.8265610933303833
+    }, {
+      "y" : 248.9583282470703,
+      "x" : 872.25,
+      "part" : "right_shoulder",
+      "score" : 0.8222082257270813
+    }, {
+      "y" : 386.9270935058594,
+      "x" : 1046.9444580078125,
+      "part" : "left_elbow",
+      "score" : 0.8991424441337585
+    }, {
+      "y" : 368.53125,
+      "x" : 872.25,
+      "part" : "right_elbow",
+      "score" : 0.8917467594146729
+    }, {
+      "y" : 469.7083435058594,
+      "x" : 982.5833129882812,
+      "part" : "left_wrist",
+      "score" : 0.7982574701309204
+    }, {
+      "y" : 442.1145935058594,
+      "x" : 955.0,
+      "part" : "right_wrist",
+      "score" : 0.8603919744491577
+    }, {
+      "y" : 469.7083435058594,
+      "x" : 991.7777709960938,
+      "part" : "left_hip",
+      "score" : 0.6913819313049316
+    }, {
+      "y" : 469.7083435058594,
+      "x" : 899.8333129882812,
+      "part" : "right_hip",
+      "score" : 0.7119119167327881
+    }, {
+      "y" : 662.8645629882812,
+      "x" : 991.7777709960938,
+      "part" : "left_knee",
+      "score" : 0.8208074569702148
+    }, {
+      "y" : 681.2604370117188,
+      "x" : 918.2222290039062,
+      "part" : "right_knee",
+      "score" : 0.7733436822891235
+    }, {
+      "y" : 846.8229370117188,
+      "x" : 964.1944580078125,
+      "part" : "left_ankle",
+      "score" : 0.8417468070983887
+    }, {
+      "y" : 874.4166870117188,
+      "x" : 909.0277709960938,
+      "part" : "right_ankle",
+      "score" : 0.8045114874839783
+    } ]
+  }, {
+    "frameNo" : 1,
+    "keyPointDtos" : [ {
+      "y" : 151.5,
+      "x" : 952.9444580078125,
+      "part" : "nose",
+      "score" : 0.951569139957428
+    }, {
+      "y" : 133.375,
+      "x" : 971.0555419921875,
+      "part" : "left_eye",
+      "score" : 0.9497162699699402
+    }, {
+      "y" : 142.4375,
+      "x" : 934.8333129882812,
+      "part" : "right_eye",
+      "score" : 0.9058775901794434
+    }, {
+      "y" : 151.5,
+      "x" : 989.1666870117188,
+      "part" : "left_ear",
+      "score" : 0.9232050776481628
+    }, {
+      "y" : 160.5625,
+      "x" : 916.7222290039062,
+      "part" : "right_ear",
+      "score" : 0.9376944899559021
+    }, {
+      "y" : 251.1875,
+      "x" : 1034.4444580078125,
+      "part" : "left_shoulder",
+      "score" : 0.8404182195663452
+    }, {
+      "y" : 242.125,
+      "x" : 871.4444580078125,
+      "part" : "right_shoulder",
+      "score" : 0.8220759034156799
+    }, {
+      "y" : 387.125,
+      "x" : 1034.4444580078125,
+      "part" : "left_elbow",
+      "score" : 0.9172118902206421
+    }, {
+      "y" : 359.9375,
+      "x" : 871.4444580078125,
+      "part" : "right_elbow",
+      "score" : 0.8612682223320007
+    }, {
+      "y" : 459.625,
+      "x" : 971.0555419921875,
+      "part" : "left_wrist",
+      "score" : 0.7992289066314697
+    }, {
+      "y" : 450.5625,
+      "x" : 971.0555419921875,
+      "part" : "right_wrist",
+      "score" : 0.8581046462059021
+    }, {
+      "y" : 468.6875,
+      "x" : 998.2222290039062,
+      "part" : "left_hip",
+      "score" : 0.6640511155128479
+    }, {
+      "y" : 468.6875,
+      "x" : 907.6666870117188,
+      "part" : "right_hip",
+      "score" : 0.684273362159729
+    }, {
+      "y" : 659.0,
+      "x" : 998.2222290039062,
+      "part" : "left_knee",
+      "score" : 0.8123100399971008
+    }, {
+      "y" : 668.0625,
+      "x" : 916.7222290039062,
+      "part" : "right_knee",
+      "score" : 0.7620736956596375
+    }, {
+      "y" : 849.3125,
+      "x" : 971.0555419921875,
+      "part" : "left_ankle",
+      "score" : 0.8121398687362671
+    }, {
+      "y" : 876.5,
+      "x" : 907.6666870117188,
+      "part" : "right_ankle",
+      "score" : 0.8169323205947876
+    } ]
+  } ]
 }</code></pre>
 </div>
 </div>
@@ -1396,6 +1648,9 @@ Host: templet.restapi.com
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1464,6 +1719,9 @@ Host: templet.restapi.com</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1541,6 +1799,9 @@ Host: templet.restapi.com
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1615,6 +1876,9 @@ Host: templet.restapi.com
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1680,6 +1944,9 @@ Host: templet.restapi.com</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1783,7 +2050,7 @@ Host: templet.restapi.com</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'https://templet.restapi.com/profile/TestUser1/image' -i -X POST \
     -H 'Content-Type: multipart/form-data;charset=UTF-8' \
     -H 'Accept: application/hal+json' \
-    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjA0NjgyNjgwLCJleHAiOjE2MDQ2ODMyODB9.1Ozy3H6eH8SD32o4kQaMFrwipHGH1_JEqcrgEsCqDAQ' \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwibmlja05hbWUiOiLthYzsiqTtirgg7Jyg7KCAIDEiLCJpYXQiOjE2MDU1ODY1NTMsImV4cCI6MTYwNTU4NzE1M30.In3756i6Ss2wCDO4lX6pt8ApDpcYBz3n_dY4yD_UfIU' \
     -F 'image=@test.jpg;type=image/jpeg'</code></pre>
 </div>
 </div>
@@ -1793,6 +2060,9 @@ Host: templet.restapi.com</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
@@ -1894,6 +2164,9 @@ Host: templet.restapi.com</code></pre>
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -1909,7 +2182,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-07 01:43:00 +0900
+Last updated 2020-11-16 22:21:46 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

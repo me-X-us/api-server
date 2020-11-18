@@ -5,6 +5,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import com.mexus.homeleisure.api.training.dto.TrainingDetailDto;
 import com.mexus.homeleisure.api.training.dto.TrainingsDto;
 import com.mexus.homeleisure.api.training.request.ModifyTrainingRequest;
+import com.mexus.homeleisure.api.training.response.PosesResponse;
 import com.mexus.homeleisure.api.training.response.TrainingResponse;
 import com.mexus.homeleisure.api.training.response.TrainingsResponse;
 import com.mexus.homeleisure.api.training.service.TrainingService;
@@ -73,7 +74,7 @@ public class TrainingController {
    */
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public LinksResponse savetraining(
+  public LinksResponse saveTraining(
       @RequestBody ModifyTrainingRequest modifyTrainingRequest,
       HttpServletResponse response
 
@@ -97,7 +98,7 @@ public class TrainingController {
    */
   @GetMapping("/{trainingId}")
   @ResponseStatus(HttpStatus.OK)
-  public TrainingResponse gettraining(
+  public TrainingResponse getTraining(
       @PathVariable Long trainingId
   ) {
     TrainingDetailDto training = this.trainingService.getTraining(trainingId);
@@ -112,6 +113,15 @@ public class TrainingController {
     return trainingResponse;
   }
 
+  @GetMapping("/{trainingId}/poses")
+  @ResponseStatus(HttpStatus.OK)
+  public PosesResponse getPoses(
+      @PathVariable Long trainingId
+  ) {
+    return new PosesResponse(this.trainingService.getPoses(trainingId));
+  }
+
+
   /**
    * 트레이닝 수정
    *
@@ -121,7 +131,7 @@ public class TrainingController {
    */
   @PutMapping("/{trainingId}")
   @ResponseStatus(HttpStatus.OK)
-  public LinksResponse updatetraining(
+  public LinksResponse updateTraining(
       @PathVariable Long trainingId,
       @RequestBody ModifyTrainingRequest modifyTrainingRequest
   ) {
@@ -142,7 +152,7 @@ public class TrainingController {
    */
   @DeleteMapping("/{trainingId}")
   @ResponseStatus(HttpStatus.OK)
-  public LinksResponse deletetraining(
+  public LinksResponse deleteTraining(
       @PathVariable Long trainingId
   ) {
     String requestUserId = SecurityContextHolder.getContext().getAuthentication().getName();

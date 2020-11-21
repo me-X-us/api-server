@@ -4,15 +4,13 @@
 name: Deploy on Test Server
 
 on:
-  pull_request:
-    types: [closed] # when PR closed
-    branches: [ develop ]
+  push:
+    branches:
+      - develop
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged
 
     steps:
     - uses: actions/checkout@v2

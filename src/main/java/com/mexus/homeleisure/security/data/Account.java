@@ -78,4 +78,8 @@ public class Account {
         this.refreshToken = refreshToken;
         this.roles = roles;
     }
+
+    public void updateProfile(String nickName) {
+        this.name = nickName;
+    }
 }

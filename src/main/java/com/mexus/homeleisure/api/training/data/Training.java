@@ -79,7 +79,7 @@ public class Training extends Date {
     this.trainer = trainer;
     this.title = title;
     this.body = body;
-    this.likes = (long)0;
+    this.likes = (long) 0;
     this.views = (long) 0;
     this.commentNum = (long) 0;
   }
@@ -97,6 +97,7 @@ public class Training extends Date {
   public void increaseLikes() {
     this.likes++;
   }
+
   /**
    * 트레이닝 수정
    * 데이터 변경
@@ -116,10 +117,14 @@ public class Training extends Date {
    * @param comment 댓글
    */
   public void addComment(Comment comment) {
-      if (this.comments == null) {
-          this.comments = new ArrayList<Comment>();
-      }
+    if (this.comments == null) {
+      this.comments = new ArrayList<Comment>();
+    }
     this.comments.add(comment);
     this.commentNum++;
+  }
+
+  public void decreaseLikes() {
+    this.likes--;
   }
 }

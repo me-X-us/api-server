@@ -1,6 +1,8 @@
 package com.mexus.homeleisure.api.training.dto;
 
 import java.time.LocalDateTime;
+
+import com.mexus.homeleisure.api.training.data.Training;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +28,7 @@ public class TrainingsDto {
    */
   private final String title;
   /**
-   * 트레이너 ID
+   * 트레이너 이름
    */
   private final String trainer;
   /**
@@ -37,4 +39,12 @@ public class TrainingsDto {
    * 수정일
    */
   private final LocalDateTime modifiedDate;
+
+  public TrainingsDto(Training training){
+    this.trainingId = training.getTrainingId();
+    this.title = training.getTitle();
+    this.trainer = training.getTrainer().getName();
+    this.views = training.getViews();
+    this.modifiedDate = training.getModifiedDate();
+  }
 }

@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/comments", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(produces = MediaTypes.HAL_JSON_VALUE)
 public class CommentController {
 
   private final CommentService commentService;
@@ -48,7 +48,7 @@ public class CommentController {
    * @param addCommentRequest 댓글 정보
    * @return API Docs 링크
    */
-  @PostMapping("/{trainingId}")
+  @PostMapping("/comments/{trainingId}")
   @ResponseStatus(HttpStatus.CREATED)
   public LinksResponse addComment(
       @PathVariable Long trainingId,
@@ -63,7 +63,7 @@ public class CommentController {
     );
   }
 
-  @GetMapping("/{trainingId}")
+  @GetMapping("/trainings/{trainingId}/comments")
   @ResponseStatus(HttpStatus.OK)
   public PagedModel<CommentsResponse> getComments(
       @PathVariable Long trainingId,
@@ -86,7 +86,7 @@ public class CommentController {
    * @param updateCommentRequest 댓글 정보
    * @return API Docs 링크
    */
-  @PutMapping("/{commentId}")
+  @PutMapping("/comments/{commentId}")
   @ResponseStatus(HttpStatus.OK)
   public LinksResponse updateComment(
       @PathVariable Long commentId,
@@ -107,7 +107,7 @@ public class CommentController {
    * @param commentId 트레이닝 ID
    * @return API Docs 링크
    */
-  @DeleteMapping("/{commentId}")
+  @DeleteMapping("/comments/{commentId}")
   @ResponseStatus(HttpStatus.OK)
   public LinksResponse deleteComment(
       @PathVariable Long commentId

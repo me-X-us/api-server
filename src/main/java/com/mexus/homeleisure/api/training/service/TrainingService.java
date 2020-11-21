@@ -2,6 +2,8 @@ package com.mexus.homeleisure.api.training.service;
 
 import com.mexus.homeleisure.api.training.data.KeyPoints;
 import com.mexus.homeleisure.api.training.data.KeyPointsRepository;
+import com.mexus.homeleisure.api.training.data.Likes;
+import com.mexus.homeleisure.api.training.data.LikesRepository;
 import com.mexus.homeleisure.api.training.data.Training;
 import com.mexus.homeleisure.api.training.data.TrainingRepository;
 import com.mexus.homeleisure.api.training.dto.FrameDto;
@@ -10,6 +12,7 @@ import com.mexus.homeleisure.api.training.dto.TrainingDetailDto;
 import com.mexus.homeleisure.api.training.dto.TrainingsDto;
 import com.mexus.homeleisure.api.training.exception.TrainingNotFoundException;
 import com.mexus.homeleisure.api.training.request.ModifyTrainingRequest;
+import com.mexus.homeleisure.api.user.data.SubscribeRepository;
 import com.mexus.homeleisure.api.user.data.Users;
 import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.api.user.exception.InvalidUserException;
@@ -36,6 +39,8 @@ public class TrainingService {
   private final TrainingRepository trainingRepository;
   private final UsersRepository usersRepository;
   private final KeyPointsRepository keyPointsRepository;
+  private final LikesRepository likesRepository;
+  private final SubscribeRepository subscribeRepository;
 
   /**
    * 모든 트레이닝 조회(Paged)
@@ -75,10 +80,11 @@ public class TrainingService {
    * @throws TrainingNotFoundException 존재하지 않는 트레이닝입니다.
    */
   @Transactional
-  public TrainingDetailDto getTraining(Long trainingId) {
+  public TrainingDetailDto getTraining(String requestUserId, Long trainingId) {
     Training training = this.trainingRepository.findByTrainingId(trainingId)
         .orElseThrow(TrainingNotFoundException::new);
     training.increaseViews();
+    likesRepository.existsByUser_UserIdAndTraining_TrainingId(requestUserId, trainingId);
 
     return TrainingDetailDto.builder()
         .title(training.getTitle())
@@ -87,6 +93,9 @@ public class TrainingService {
         .trainer(training.getTrainer().getName())
         .createdDate(training.getCreatedDate())
         .modifiedDate(training.getModifiedDate())
+        .like(likesRepository.existsByUser_UserIdAndTraining_TrainingId(requestUserId, trainingId))
+        .subscribe(subscribeRepository
+            .existsByTrainer_UserIdAndUser_UserId(training.getTrainer().getUserId(), requestUserId))
         .likes(training.getLikes())
         .views(training.getViews())
         .build();
@@ -140,5 +149,26 @@ public class TrainingService {
       frame.addKeyPoint(new KeyPointDto(keyPoint));
     }
     return frames;
+  }
+
+  @Transactional
+  public void likeTraining(String requestUserId, Long trainingId) {
+    Training training = trainingRepository.findByTrainingId(trainingId)
+        .orElseThrow(TrainingNotFoundException::new);
+    training.increaseLikes();
+    likesRepository.save(
+        new Likes(
+            usersRepository.findByUserIdAndState(requestUserId, UserStatus.NORMAL, Users.class)
+                .orElseThrow(InvalidUserException::new),
+            training
+        ));
+  }
+
+  @Transactional
+  public void unLikeTraining(String requestUserId, Long trainingId) {
+    likesRepository.deleteByUser_UserIdAndTraining_TrainingId(requestUserId, trainingId);
+    Training training = trainingRepository.findByTrainingId(trainingId)
+        .orElseThrow(TrainingNotFoundException::new);
+    training.decreaseLikes();
   }
 }

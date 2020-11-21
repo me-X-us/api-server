@@ -1,6 +1,7 @@
 package com.mexus.homeleisure.api.training.dto;
 
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,6 +13,8 @@ import lombok.Getter;
  * @version 1.0
  */
 @Getter
+@Builder
+@AllArgsConstructor
 public class TrainingDetailDto {
   /**
    * 트레이닝 제목
@@ -46,10 +49,6 @@ public class TrainingDetailDto {
    */
   private final Boolean like;
   /**
-   * 담기 여부
-   */
-  private final Boolean keep;
-  /**
    * 작성일
    */
   private final LocalDateTime createdDate;
@@ -57,20 +56,4 @@ public class TrainingDetailDto {
    * 수정일
    */
   private final LocalDateTime modifiedDate;
-
-  @Builder
-  public TrainingDetailDto(String title, String trainerId, String trainer, String body, Long views,
-                           Long likes, LocalDateTime createdDate, LocalDateTime modifiedDate) {
-    this.title = title;
-    this.trainerId = trainerId;
-    this.trainer = trainer;
-    this.body = body;
-    this.likes = likes;
-    this.views = views;
-    this.subscribe=false;
-    this.like=false;
-    this.keep=false;
-    this.createdDate = createdDate;
-    this.modifiedDate = modifiedDate;
-  }
 }

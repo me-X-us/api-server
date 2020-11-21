@@ -44,7 +44,7 @@ class UpdateCommentTest extends BaseControllerTest {
                 fieldWithPath("message").description("댓글")
             )));
     this.mockMvc.perform(
-        RestDocumentationRequestBuilders.get("/comments/{trainingId}", training.getTrainingId()))
+        RestDocumentationRequestBuilders.get("/trainings/{trainingId}/comments", training.getTrainingId()))
         .andExpect(status().isOk())
         .andExpect(jsonPath("_embedded.commentList[0].message").value("댓글 수정 테스트"));
   }

@@ -1,18 +1,15 @@
 package com.mexus.homeleisure.api.image.data;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode(of = "imageId")
 public class ThumbnailImage {
 
     @Id

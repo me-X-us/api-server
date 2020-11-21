@@ -94,10 +94,10 @@ public class TrainingController {
     public TrainingResponse getTraining(
             @PathVariable Long trainingId
     ) {
-        TrainingDetailDto training = this.trainingService.getTraining(trainingId);
+        String requestUserId = SecurityContextHolder.getContext().getAuthentication().getName();
+        TrainingDetailDto training = this.trainingService.getTraining(requestUserId, trainingId);
         TrainingResponse trainingResponse = new TrainingResponse(training, trainingId);
         if (SecurityContextHolder.getContext().getAuthentication().getName()
-
                 .equals(training.getTrainerId())) {
             trainingResponse
                     .add(linkTo(TrainingController.class).slash(trainingId).withRel("updateTraining"));
@@ -164,7 +164,7 @@ public class TrainingController {
      *
      */
     @PostMapping("/{trainingId}/like")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public void likeTraining(
             @PathVariable Long trainingId
     ) {
@@ -173,11 +173,11 @@ public class TrainingController {
     }
 
     /**
-     * 트레이닝 좋아요
+     * 트레이닝 좋아요 취소
      *
      */
     @DeleteMapping("/{trainingId}/like")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public void unLikeTraining(
             @PathVariable Long trainingId
     ) {

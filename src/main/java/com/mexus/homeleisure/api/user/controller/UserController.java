@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/users", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(produces = MediaTypes.HAL_JSON_VALUE)
 public class UserController {
 
     private final UserService userService;
@@ -48,7 +48,7 @@ public class UserController {
         userService.unsubscribeTrainer(requestUserId, trainerId);
     }
 
-    @GetMapping("/training/subscribe")
+    @GetMapping("/subscribes")
     public List<SubScribesDto> getSubscribeList() {
         String requestUserId = SecurityContextHolder.getContext().getAuthentication().getName();
         return userService.getSubscribeList(requestUserId);

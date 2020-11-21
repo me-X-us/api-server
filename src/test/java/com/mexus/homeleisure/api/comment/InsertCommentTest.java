@@ -46,6 +46,7 @@ class InsertCommentTest extends BaseControllerTest {
         RestDocumentationRequestBuilders.get("/trainings/{trainingId}/comments", training.getTrainingId()))
         .andExpect(status().isOk())
         .andExpect(jsonPath("_embedded.commentList[0].commenterId").value("TestUser1"))
-        .andExpect(jsonPath("_embedded.commentList[0].message").value("댓글 테스트"));
+        .andExpect(jsonPath("_embedded.commentList[0].message").value("댓글 테스트"))
+    .andDo(document("getComments"));
   }
 }

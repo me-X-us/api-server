@@ -34,7 +34,7 @@ class UnLikeTrainingTest extends BaseControllerTest {
         .perform(RestDocumentationRequestBuilders.delete("/trainings/{trainingId}/like", training.getTrainingId()))
         .andExpect(status().isOk())
         .andDo(print())
-        .andDo(document("like"));
+        .andDo(document("unLike"));
     this.mockMvc.perform(
         RestDocumentationRequestBuilders.get("/trainings/{trainingId}", training.getTrainingId()))
         .andExpect(status().isOk())

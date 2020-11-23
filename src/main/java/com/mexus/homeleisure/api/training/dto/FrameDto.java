@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 public class FrameDto {
 
   private int frameNo;
-  private final List<KeyPointDto> keyPointDtos = new ArrayList<KeyPointDto>();
+  private final List<KeyPointDto> keyPoint = new ArrayList<KeyPointDto>();
 
   public FrameDto(int frameNo){
     this.frameNo = frameNo;
   }
 
   public void addKeyPoint(KeyPointDto keyPointDto){
-    this.keyPointDtos.add(keyPointDto);
+    this.keyPoint.add(keyPointDto);
   }
 }

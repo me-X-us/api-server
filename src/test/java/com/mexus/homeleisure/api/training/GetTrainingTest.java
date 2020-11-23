@@ -61,6 +61,38 @@ class GetTrainingTest extends BaseControllerTest {
   }
 
   @Test
+  @WithMockUser("TestUser1")
+  @DisplayName("트레이닝 검색(성공)")
+  void searchTrainingsSuccess() throws Exception {
+    this.trainingFactory.generateTraining(1);
+    this.trainingFactory.generateTraining(2);
+    this.trainingFactory.generateTraining(3);
+    this.trainingFactory.generateTraining(4);
+    this.trainingFactory.generateTraining(5);
+    this.trainingFactory.generateTraining(6);
+    this.mockMvc.perform(RestDocumentationRequestBuilders.get("/trainings?search=1"))
+        .andExpect(status().isOk())
+        .andDo(print())
+        .andDo(document("searchTrainings",
+            responseFields(
+                fieldWithPath("_embedded.trainingList[].trainingId").description("트레이닝 아이디"),
+                fieldWithPath("_embedded.trainingList[].title").description("트레이닝 제목"),
+                fieldWithPath("_embedded.trainingList[].trainer").description("트레이너"),
+                fieldWithPath("_embedded.trainingList[].views").description("조회수"),
+                fieldWithPath("_embedded.trainingList[].modifiedDate").description("수정일"),
+                fieldWithPath("_embedded.trainingList[]._links.self.href")
+                    .description("트레이닝 데이터 링크"),
+                fieldWithPath("_links.self.href").description("Self 링크"),
+                fieldWithPath("_links.profile.href").description("해당 링크의 Api Docs"),
+                fieldWithPath("page.size").description("한 페이지에 조회되는 트레이닝수"),
+                fieldWithPath("page.totalElements").description("총 트레이닝수"),
+                fieldWithPath("page.totalPages").description("총 페이지"),
+                fieldWithPath("page.number").description("현재 페이지")
+            )
+        ));
+  }
+
+  @Test
   @DisplayName("트레이닝 조회(성공)")
   void getTrainingSuccess() throws Exception {
     Training training = this.trainingFactory.generateTraining(1);

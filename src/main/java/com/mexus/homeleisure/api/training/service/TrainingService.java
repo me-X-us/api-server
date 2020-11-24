@@ -53,6 +53,11 @@ public class TrainingService {
     return this.trainingRepository.findAllProjectedBy(pageable);
   }
 
+
+  public Page<TrainingsDto> searchTrainings(String search, Pageable pageable) {
+    return this.trainingRepository.findAllByTitleContaining(search, pageable);
+  }
+
   /**
    * 트레이닝 작성
    *

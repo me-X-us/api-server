@@ -38,11 +38,13 @@ public interface TrainingRepository extends JpaRepository<Training, Long> {
    * @param pageable 페이지 정보
    * @return 모든 트레이닝(Page)
    */
-  @Query(value = "SELECT new com.mexus.homeleisure.api.training.dto.TrainingsDto(" +
+/*  @Query(value = "SELECT new com.mexus.homeleisure.api.training.dto.TrainingsDto(" +
       "trainingId, title, trainer.name, views, modifiedDate)" +
       " FROM Training",
-      countQuery = "SELECT count(trainingId) FROM Training")
+      countQuery = "SELECT count(trainingId) FROM Training")*/
   Page<TrainingsDto> findAllProjectedBy(Pageable pageable);
+
+  Page<TrainingsDto> findAllByTitleContaining(String title, Pageable pageable);
 
   Boolean existsByTrainingIdAndTrainer_UserId(Long trainingId, String trainerId);
 }

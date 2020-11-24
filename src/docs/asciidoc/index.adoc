@@ -166,6 +166,13 @@ operation::refresh[snippets='http-request,http-response']
 
 operation::getTrainings[snippets='http-request,http-response']
 
+[[searchTrainings]]
+=== 트레이닝 검색
+
+`Get` 요청을 사용해서 트레이닝을 검색 할 수 있다.
+
+operation::searchTrainings[snippets='http-request,http-response']
+
 [[sendTraining]]
 === 트레이닝 작성
 

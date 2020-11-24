@@ -9,6 +9,7 @@ import com.mexus.homeleisure.api.user.data.Users;
 import com.mexus.homeleisure.api.user.data.UsersRepository;
 import com.mexus.homeleisure.api.user.data.dto.SubScribesDto;
 import com.mexus.homeleisure.api.user.exception.InvalidUserException;
+import com.mexus.homeleisure.api.user.response.ProfileResponse;
 import com.mexus.homeleisure.security.data.UserStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -67,5 +68,10 @@ public class UserService {
         Users users = usersRepository.findByUserIdAndState(requestUserId,UserStatus.NORMAL,Users.class)
                 .orElseThrow(InvalidUserException::new);
         users.updateProfile(nickName);
+    }
+
+    public ProfileResponse getProfile(String requestUserId) {
+        return usersRepository.findByUserIdAndState(requestUserId,UserStatus.NORMAL,ProfileResponse.class)
+            .orElseThrow(UnknownError::new);
     }
 }

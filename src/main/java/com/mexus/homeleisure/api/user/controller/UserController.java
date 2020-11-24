@@ -3,6 +3,7 @@ package com.mexus.homeleisure.api.user.controller;
 import com.mexus.homeleisure.api.training.dto.TrainingsDto;
 import com.mexus.homeleisure.api.user.data.dto.SubScribesDto;
 import com.mexus.homeleisure.api.user.request.UpdateProfileRequest;
+import com.mexus.homeleisure.api.user.response.ProfileResponse;
 import com.mexus.homeleisure.api.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.MediaTypes;
@@ -23,6 +24,12 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/profile")
+    public ProfileResponse getProfile(){
+        String requestUserId = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userService.getProfile(requestUserId);
+    }
 
     @PutMapping("/profile")
     public void updateProfile(

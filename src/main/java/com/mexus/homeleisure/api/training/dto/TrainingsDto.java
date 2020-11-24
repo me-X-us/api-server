@@ -28,6 +28,10 @@ public class TrainingsDto {
    */
   private final String title;
   /**
+   * 트레이닝 제목
+   */
+  private final String body;
+  /**
    * 트레이너 이름
    */
   private final String trainer;
@@ -46,5 +50,6 @@ public class TrainingsDto {
     this.trainer = training.getTrainer().getName();
     this.views = training.getViews();
     this.modifiedDate = training.getModifiedDate();
+    this.body = training.getBody();
   }
 }

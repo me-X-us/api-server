@@ -41,6 +41,7 @@ class GetTrainingTest extends BaseControllerTest {
             responseFields(
                 fieldWithPath("_embedded.trainingList[].trainingId").description("트레이닝 아이디"),
                 fieldWithPath("_embedded.trainingList[].title").description("트레이닝 제목"),
+                fieldWithPath("_embedded.trainingList[].body").description("트레이닝 설명"),
                 fieldWithPath("_embedded.trainingList[].trainer").description("트레이너"),
                 fieldWithPath("_embedded.trainingList[].views").description("조회수"),
                 fieldWithPath("_embedded.trainingList[].modifiedDate").description("수정일"),
@@ -77,6 +78,7 @@ class GetTrainingTest extends BaseControllerTest {
             responseFields(
                 fieldWithPath("_embedded.trainingList[].trainingId").description("트레이닝 아이디"),
                 fieldWithPath("_embedded.trainingList[].title").description("트레이닝 제목"),
+                fieldWithPath("_embedded.trainingList[].body").description("트레이닝 설명"),
                 fieldWithPath("_embedded.trainingList[].trainer").description("트레이너"),
                 fieldWithPath("_embedded.trainingList[].views").description("조회수"),
                 fieldWithPath("_embedded.trainingList[].modifiedDate").description("수정일"),

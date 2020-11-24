@@ -35,7 +35,7 @@ jobs:
     - name: Deploy on Test Server
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: sudo docker stop mexus && sudo docker rm mexus && sudo docker run -d  -p 88:8080 -v /etc/localtime:/etc/localtime:ro -e TZ=Asia/Seoul --name=mexus -e SLACK_URL=${{ secrets.SLACK_URL }} -e DB_URL=${{ secrets.DB_URL }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} --restart=unless-stopped docker.pkg.github.com/me-x-us/api-server/test:${{github.sha}}
+        command: docker stop mexus && docker rm mexus && docker run -d  -p 88:8080 -v /etc/localtime:/etc/localtime:ro -e TZ=Asia/Seoul --name=mexus -e SLACK_URL=${{ secrets.SLACK_URL }} -e DB_URL=${{ secrets.DB_URL }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} --restart=unless-stopped docker.pkg.github.com/me-x-us/api-server/test:${{github.sha}}
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         privateKey: ${{ secrets.PRIVATE_KEY}}

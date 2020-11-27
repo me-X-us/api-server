@@ -37,7 +37,7 @@ public class Comment extends Date {
     /**
      * 댓글 작성자
      */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author")
     private Users author;
 

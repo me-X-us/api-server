@@ -15,11 +15,11 @@ public class Subscribe {
     private Long subscribeId;
 
     @OneToOne
-    @JoinColumn(name = "trainingId")
+    @JoinColumn(name = "trainerId")
     private Users trainer;
 
     @OneToOne
-    @JoinColumn(name = "accountId")
+    @JoinColumn(name = "userId")
     private Users user;
 
     public Subscribe(Users trainer, Users user){

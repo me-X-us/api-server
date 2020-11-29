@@ -42,7 +42,7 @@ public class Comment extends Date {
     private Users author;
 
     @ManyToOne
-    @JoinColumn(name = "training")
+    @JoinColumn(name = "training_id")
     private Training training;
 
     public Comment(Users author, String message, Training training) {

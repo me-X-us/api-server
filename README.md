@@ -1,4 +1,4 @@
-# Home Leisure Api Server
+# Training.zip Api Server
 ## Index
   - [Overview](#overview) 
   - [Getting Started](#getting-started)
@@ -7,7 +7,7 @@
   - [License](#license)
   - [Deployment](#deployment)
   - [Used or Referenced Projects](Used-or-Referenced-Projects)
-## About Leisure Api Server
+## About Training.zip Api Server
 This Project is Api Server of Home Leisure service.
 
 ## Overview

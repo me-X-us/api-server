@@ -1,4 +1,4 @@
-# Contributing to Home Leisure Api Server
+# Contributing to Training.zip Api Server
 Thank you for contributing to SpringBootRestApiTemplate
 We have some rules to contribute this project
 

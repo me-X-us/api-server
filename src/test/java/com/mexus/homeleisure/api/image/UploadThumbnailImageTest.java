@@ -40,7 +40,7 @@ class UploadThumbnailImageTest extends BaseControllerTest {
                 .andDo(print())
                 .andDo(document("uploadThumbnailImage",
                         pathParameters(
-                                parameterWithName("trainingId").description("user id")
+                                parameterWithName("trainingId").description("트레이닝 번호")
                         )
                 ))
         ;

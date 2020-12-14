@@ -1,4 +1,4 @@
-= SpringBoot Templet REST API Guide
+= Trainging.zip REST API Guide
 Always0ne;
 :doctype: book
 :icons: font
@@ -125,187 +125,206 @@ operation::3002[snippets='response-body']
 응답은 http://stateless.co/hal_specification.html[Hypertext Application from resource to resource. Language (HAL)] 형식을 따른다.
 링크는 `_links`라는 키로 제공한다. 본 API의 사용자(클라이언트)는 URI를 직접 생성하지 않아야 하며, 리소스에서 제공하는 링크를 사용해야 한다.
 
-[[signin]]
-=== 인증하기
 
-`Post` 요청을 사용해서 인증할수있다.
+[[Service]]
+== 서비스 모듈
 
-operation::signin[snippets='http-request,http-response']
-
-[[signup]]
-=== 회원가입하기
-
-`Post` 요청을 사용해서 회원가입을 할 수있다.
-
-operation::signup[snippets='http-request,http-response']
-
-[[checkid]]
-=== 아이디 중복 확인하기
-
-`Get` 요청을 사용해서 아이디 중복확인을 할 수있다.
-
-operation::idcheck[snippets='http-request,http-response']
-
-[[checkNickname]]
-=== 닉네임 중복 확인하기
-
-`Get` 요청을 사용해서 닉네임 중복확인을 할 수있다.
-
-operation::nickNamecheck[snippets='http-request,http-response']
-
-[[refresh]]
-=== 토큰 재발급
-`Post` 요청을 사용해서 토큰을 재발급받을 수 있다.
-
-operation::refresh[snippets='http-request,http-response']
-
-[[getTrainings]]
-=== 트레이닝 목록 조회
-
-`Get` 요청을 사용해서 트레이닝 목록을 조회 할 수 있다.
-
-operation::getTrainings[snippets='http-request,http-response']
-
-[[searchTrainings]]
-=== 트레이닝 검색
-
-`Get` 요청을 사용해서 트레이닝을 검색 할 수 있다.
-
-operation::searchTrainings[snippets='http-request,http-response']
+[[Training]]
+=== 트레이닝 서비스
+[[upload]]
+==== 트레이닝 등록
 
 [[sendTraining]]
-=== 트레이닝 작성
-
+===== Training-S101  트레이닝 등록하기
 `Post` 요청을 사용해서 트레이닝을 작성 할 수 있다.
 
 operation::sendTraining[snippets='http-request,http-response']
 
-[[getTraining]]
-=== 트레이닝 조회
-
-`Get` 요청을 사용해서 트레이닝을 조회 할 수 있다.
-
-operation::getTraining[snippets='path-parameters,http-request,http-response']
-
-[[getPoses]]
-=== 트레이닝 포즈 데이터 조회
-
-`Get` 요청을 사용해서 트레이닝 포즈 데이터를 조회 할 수 있다.
-
-operation::getPoses[snippets='http-request,http-response']
 
 [[updateTraining]]
-=== 트레이닝 수정
-
+=====  Training-S105 트레이닝 수정하기
 `Put` 요청을 사용해서 트레이닝을 수정 할 수 있다.
 
 operation::updateTraining[snippets='path-parameters,http-request,http-response']
 
 [[deleteTraining]]
-=== 트레이닝 삭제
-
+=====  Training-S106 트레이닝 삭제하기
 `Delete` 요청을 사용해서 트레이닝을 삭제 할 수 있다.
 
 operation::deleteTraining[snippets='path-parameters,http-request,http-response']
 
-[[getComments]]
-=== 댓글 조회
-`Get` 요청을 사용해서 댓글들을 조회할 수 있다.
 
-operation::getComments[snippets='http-request,http-response']
+[[updateThumbnailImage]]
+=====  Training-S107 썸네일 이미지 삽입
+`Post` 요청을 사용해서 썸네일 이미지를 수정할 수 있다.
+
+operation::uploadThumbnailImage[snippets='path-parameters,curl-request,http-response']
+
+[[lists]]
+==== 트레이닝 리스트 조회
+
+[[getTrainings]]
+===== Training-S201 트레이닝 검색하기
+`Get` 요청을 사용해서 트레이닝 목록을 조회 할 수 있다.
+
+operation::getTrainings[snippets='http-request,http-response']
+
+[[searchTrainings]]
+===== Training-S202 트레이닝 목록 조회
+`Get` 요청을 사용해서 트레이닝을 검색 할 수 있다.
+
+operation::searchTrainings[snippets='http-request,http-response']
+
+
+[[getThumbnailImage]]
+===== Training-S203 썸네일 이미지 조회
+`Get` 요청을 사용해서 썸네일 이미지를 조회할 수 있다.
+
+operation::getThumbnailImage[snippets='path-parameters,http-request']
+
+[[dotraining]]
+==== 트레이닝 하기
+
+[[getTraining]]
+===== Training-S301 트레이닝 정보 조회
+`Get` 요청을 사용해서 트레이닝을 조회 할 수 있다.
+
+operation::getTraining[snippets='path-parameters,http-request,http-response']
+
+[[getPoses]]
+===== Training-S302 트레이닝 포즈 정보 조회
+`Get` 요청을 사용해서 트레이닝 포즈 데이터를 조회 할 수 있다.
+
+operation::getPoses[snippets='http-request,http-response']
+
+[[comment]]
+==== 댓글
 
 [[sendComment]]
-=== 댓글 작성
+===== Community-S101 댓글 작성
 
 `Post` 요청을 사용해서 댓글을 작성 할 수 있다.
 
 operation::sendComment[snippets='path-parameters,http-request,http-response']
 
 [[updateComment]]
-=== 댓글 수정
+===== Community-S102 댓글 수정
 
 `Put` 요청을 사용해서 댓글을 수정 할 수 있다.
 
 operation::updateComment[snippets='path-parameters,http-request,http-response']
 
 [[deleteComment]]
-=== 댓글 삭제
+===== Community-S103 댓글 삭제
 
 `Delete` 요청을 사용해서 댓글을 삭제 할 수 있다.
 
 operation::deleteComment[snippets='path-parameters,http-request,http-response']
 
-[[likeTraining]]
-=== 좋아요
-`Post` 요청을 사용해서 좋아요를 할 수 있다.
+[[getComments]]
+===== Community-S104 댓글 조회
+`Get` 요청을 사용해서 댓글들을 조회할 수 있다.
 
-operation::like[snippets='http-request,http-response']
+operation::getComments[snippets='http-request,http-response']
 
-[[unlikeTraining]]
-=== 좋아요 취소
-`Delete` 요청을 사용해서 좋아요를 취소 할 수 있다.
-
-operation::unLike[snippets='http-request,http-response']
-
-[[getLikes]]
-=== 좋아요 한 트레이닝 조회
-`GET` 요청을 사용해서 좋아요한 리스트를 조회할 수 있다.
-
-operation::getLikes[snippets='http-request,http-response']
+[[user]]
+==== 사용자 개인화 서비스
 
 [[subscribe]]
-=== 구독
+===== User-S101 트레이너 구독하기
 `Post` 요청을 사용해서 구독을 할 수 있다.
 
 operation::subscribe[snippets='http-request,http-response']
 
 [[unSubscribe]]
-=== 구독 취소
+===== User-S102 트레이너 구독 취소하기
 `Delete` 요청을 사용해서 구독을 취소 할 수 있다.
 
 operation::unSubscribe[snippets='http-request,http-response']
 
 [[getSubscribes]]
-=== 구독 리스트 조회
+===== User-S103 구독 리스트 조회
 `GET` 요청을 사용해서 구독한 리스트를 조회할 수 있다.
 
 operation::getSubscribes[snippets='http-request,http-response']
 
+[[likeTraining]]
+===== User-S201 트레이닝 좋아요
+`Post` 요청을 사용해서 좋아요를 할 수 있다.
+
+operation::like[snippets='http-request,http-response']
+
+[[unlikeTraining]]
+===== User-S202 트레이닝 좋아요 취소하기
+`Delete` 요청을 사용해서 좋아요를 취소 할 수 있다.
+
+operation::unLike[snippets='http-request,http-response']
+
+[[getLikes]]
+===== User-S203 좋아요 한 트레이닝 조회
+`GET` 사용자가 좋아요한 트레이닝 리스트를 조회할 수 있다.
+
+operation::getLikes[snippets='http-request,http-response']
+
+[[profile]]
+==== 프로필
+
+[[getProfile]]
+===== User-S301 프로필 조회하기
+`GET` 요청을 사용해서 프로필을 조회 할 수 있다.
+
+operation::getProfile[snippets='http-request,http-response']
 [[updateProfile]]
-=== 프로필 업데이트
+===== User-S302 프로필 업데이트 하기
 `PUT` 요청을 사용해서 프로필을 수정 할 수 있다.
 
 operation::updateProfiles[snippets='http-request,http-response']
 
-[[getProfile]]
-=== 프로필 조회
-`GET` 요청을 사용해서 프로필을 조회 할 수 있다.
-
-operation::getProfile[snippets='http-request,http-response']
-
-[[getProfileImage]]
-== 프로필 이미지 조회
-`Get` 요청을 사용해서 프로필 이미지를 조회할 수 있다.
-
-operation::getProfileImage[snippets='path-parameters,http-request']
-
-
 [[updateProfileImage]]
-== 프로필 이미지 수정
+===== User-S303 프로필 이미지 수정하기
 `Post` 요청을 사용해서 프로필 이미지를 수정할 수 있다.
 
 operation::uploadProfileImage[snippets='path-parameters,curl-request,http-response']
 
+[[getProfileImage]]
+===== User-S304 프로필 이미지 조회하기
+`Get` 요청을 사용해서 프로필 이미지를 조회할 수 있다.
 
-[[getThumbnailImage]]
-== 썸네일 이미지 조회
-`Get` 요청을 사용해서 썸네일 이미지를 조회할 수 있다.
+operation::getProfileImage[snippets='path-parameters,http-request']
 
-operation::getThumbnailImage[snippets='path-parameters,http-request']
+[[Auth]]
+== 인증 모듈
 
+[[signup]]
+=== Auth-S001 회원가입
 
-[[updateThumbnailImage]]
-== 썸네일 이미지 수정
-`Post` 요청을 사용해서 썸네일 이미지를 수정할 수 있다.
+`Post` 요청을 사용해서 회원가입을 할 수있다.
 
-operation::uploadThumbnailImage[snippets='path-parameters,curl-request,http-response']
+operation::signup[snippets='http-request,http-response']
+
+[[checkid]]
+=== Auth-S002 신규 아이디 중복 검사
+
+`Get` 요청을 사용해서 아이디 중복확인을 할 수있다.
+
+operation::idcheck[snippets='http-request,http-response']
+
+[[checkNickname]]
+=== Auth-S003 닉네임 중복 검사
+
+`Get` 요청을 사용해서 닉네임 중복확인을 할 수있다.
+
+operation::nickNamecheck[snippets='http-request,http-response']
+
+[[signin]]
+=== Auth-S004 로그인
+
+`Post` 요청을 사용해서 인증할수있다.
+
+operation::signin[snippets='http-request,http-response']
+
+[[refresh]]
+=== Auth-S005 토큰 갱신
+`Post` 요청을 사용해서 토큰을 재발급받을 수 있다.
+
+operation::refresh[snippets='http-request,http-response']

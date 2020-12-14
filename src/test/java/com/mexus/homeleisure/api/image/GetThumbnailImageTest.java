@@ -36,7 +36,7 @@ class GetThumbnailImageTest extends BaseControllerTest {
                 .andDo(print())
                 .andDo(document("getThumbnailImage",
                         pathParameters(
-                                parameterWithName("trainingId").description("user id")
+                                parameterWithName("trainingId").description("트레이닝 번호")
                         )
                 ));
     }

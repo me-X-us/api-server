@@ -21,11 +21,11 @@ This Project is Api Server of Home Leisure service.
 
 ### ErrorCode Rules
 ```
-account 	0000
-community	1000
-post	  	1100
-comment		1200
-system		2000
+Account 	0000
+Community	1000
+Training  	1100
+System		2000
+Image		3000
    ```
 ## Getting Started
 ### Dependencies

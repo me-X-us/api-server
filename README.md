@@ -17,7 +17,6 @@ This Project is Api Server of Home Leisure service.
 - JWT Authentication(use AccessToken and RefreshToken)
 - Pull Request Auto BuildTest
 - Build Docker image when merged develop(`test`) and master(`release`) branch
-- [Class Document](https://me-x-us.github.io/api-server/)  
 
 ### ErrorCode Rules
 ```
